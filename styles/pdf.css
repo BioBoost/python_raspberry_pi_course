@@ -1,0 +1,15 @@
+/* Center figures*/
+figure {
+	text-align: center;
+}
+
+.markdown-section pre > code {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* For Callouts*/
+.panel {
+  border-left: grey solid 2px;
+  padding-left: 1em;
+}

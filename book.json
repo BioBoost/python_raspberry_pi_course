@@ -1,0 +1,18 @@
+{
+    "plugins": [
+        "callouts",
+        "image-captions",
+        "simple-page-toc",
+        "copy-code-button"
+    ],
+    "pluginsConfig": {
+        "callouts":
+        {
+            "showTypeInHeader": true
+        },
+        "simple-page-toc": {
+            "maxDepth": 3,
+            "skipFirstH1": true
+        }
+    }
+}
