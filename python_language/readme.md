@@ -20,7 +20,7 @@ By splitting your program in modules, Python allows you to reuse these modules i
 
 Python programs can be written very compactly and readable. It's syntax is notable shorter than many other high-level programming languages such as C++, Java, C#, ... It achieves this by
 * allowing the developer to express complex operations in a single statement using high-level data types
-* by shortening the basic syntax for example for grouping statements - grouping is done by indentation instead of parantheses
+* by shortening the basic syntax for example for grouping statements - grouping is done by indentation instead of braces
 * it is not required to declare arguments and variables
 
 It is also possible to extend Python using other popular programming languages such as C and C++.

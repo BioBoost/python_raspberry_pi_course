@@ -27,15 +27,15 @@ total = left + right
 The `+`, `-` and `*` operators function the same as in math. Their use can be seen in the code below.
 
 ```python
-a = 2 + 3;
+a = 2 + 3
 print("a = " + str(a))
 # a = 5
 
-b = a + 5;
+b = a + 5
 print("b = " + str(b))
 # a = 10
 
-c = 6 * b;
+c = 6 * b
 print("c = " + str(c))
 # c = 60
 
