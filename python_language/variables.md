@@ -70,7 +70,12 @@ print("Our current course has " + str(numberOfStudents) + " students attending i
 print("This means that there are " + str(numberOfOccupiedChairs) + " seats taken.")
 ```
 
-Of course if you want to use the value of a variable in an expression or statement the variable must exist. If it doesn't then Python will generate an error like:
+The inverse operations are also available in Python:
+* int(variable) - casts variable to integer
+* str(variable) - casts variable to string
+* float(variable) - casts variable to float (number with decimal)
+
+If you want to use the value of a variable in an expression or statement then that variable must exist. If it doesn't then Python will generate an error like:
 
 ```text
 Traceback (most recent call last):
