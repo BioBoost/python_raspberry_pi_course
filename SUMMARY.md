@@ -4,6 +4,7 @@
 
 ### Python the Language
 * [Introduction](python_language/readme.md)
+* [Variables](python_language/variables.md)
 
 ### Hands on Python
 
