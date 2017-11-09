@@ -11,9 +11,10 @@
 
 ### Hands on Hardware
 
-### The Touchberry Shield
+### The TouchBerry Pi Shield
+* [The Shield](touchberry_shield/readme.md)
 
-### Hands on the TouchBerry
+### Hands on TouchBerry
 
 ---
 

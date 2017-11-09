@@ -1,1 +1,1 @@
-# Python and Raspberry Pi Introducion Course
+# Python and Raspberry Pi Course
