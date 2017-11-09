@@ -74,11 +74,14 @@ You can exit this interactive interpreter terminal by calling the function `exit
 
 Mostly a developer wishes to execute his code more than once and that is where Python script files comes into play. Create a Python script for example on your Desktop by creating a file called `hello.py`. By adding the `.py` extension, it is recognized as a Python script. Right click the file and select `Edit with IDLE`. This is a simple text-editor that comes with Python. You can also use your favorite text-editor (such Sublime, Atom, Microsoft Code, vim, eMacs, ...).
 
-Start by adding the following content to the file:
+Start by adding the following code to the file:
 
 ```python
+# Print out a hello message to the terminal
 print("Hello World from a Python script")
 ```
+
+The line with the hashtag `#` in front of it is called a comment. Everything following this is ignored by the interpreter. This allows you to add comments, explanation or documentation to your code.
 
 In IDLE a Python script can be ran by selecting `Run => Run Module` or by pressing `F5` on the keyboard. The output should be similar to the one below.
 
