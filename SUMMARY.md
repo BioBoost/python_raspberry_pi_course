@@ -5,6 +5,7 @@
 ### Python the Language
 * [Introduction](python_language/readme.md)
 * [Variables](python_language/variables.md)
+* [Operators](python_language/operators.md)
 
 ### Hands on Python
 
