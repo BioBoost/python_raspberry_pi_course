@@ -45,6 +45,10 @@ Just hit "Install Now" and let the wizard do his magic.
 
 ## Hello World in Python
 
+A "Hello World!" program is a computer program that outputs or displays "Hello World" to the user. Being a very simple program in most programming languages, it is often used to illustrate the basic syntax of a programming language for a working program. It is often the very first program people write when they are new to the language.
+
+In addition, "Hello world!" can be a useful sanity test to make sure that a language's compiler, development environment, and run-time environment are correctly installed. Configuring a complete programming toolchain from scratch to the point where even trivial programs can be compiled and run can involve substantial amounts of work. For this reason, a simple program is used first when testing a new tool chain.
+
 Basically there are two ways to write some Python code.
 * First is via the interactive interpreter.
 * Second by writing a script with the extension `.py` and executing it with the interpreter.
@@ -61,10 +65,10 @@ print("Hello World")
 
 Some notes about this code:
 * Print is a function which takes a string argument in its most basic form
-* Print outputs the string to the terminal
+* Print outputs text strings to the terminal
 * Strings are pieces of text enclosed between double quotes `""`
 * When calling a function, you need to add parentheses after the name of the function
-* There is no need for a termination character at the end of a statement (like `;` in C++)
+* There is no need for a termination character at the end of a statement (like a `;` in C++)
 
 The result should be something like this:
 
@@ -87,4 +91,20 @@ In IDLE a Python script can be ran by selecting `Run => Run Module` or by pressi
 
 ![Hello World from a Python script](img/hello_world_from_a_script.png)
 
+Python scripts are interpreted from top to bottom as most languages. Compared to languages like C++ and Java, Python scripts have no entry point such as a main function. It just starts at the top.
+
 Congratz. That is it. Your first Python script is a fact (well at least if this is your first time using Python of course).
+
+## Building Blocks of a Programming Language
+
+Almost every programming language out there has a number of basics building blocks required to solve problems and build programs.
+
+The base of almost any computer program is the manipulation of data. Of course before a program can manipulate data it needs to be able to store it. For this it can use the computer memory. This computer memory is accessed via **variables**. Variables are used to store information to be referenced and manipulated in a computer program. They also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves. It is helpful to think of variables as containers that hold information. Their sole purpose is to label and store data in memory. This data can then be used throughout your program.
+
+Most programs will performs some sort of operations on data they have at their disposal. We often say that they process the data. For this processing a programming language needs all sorts of **operators**. Some examples are mathematical operators or text operators.
+
+Computer programs often have different things to do based on a certain situation. At certain points in the code, a decision has to be made. This requires that a **decision making** construct is available.
+
+Software is ideal for executing repetitive tasks (things that have to be done multiple times). To be able to do things multiple times a programming languages needs some sort **loop constructs**.
+
+The next chapters will take a look at all these building blocks.
