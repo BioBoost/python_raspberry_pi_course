@@ -69,3 +69,12 @@ numberOfOccupiedChairs = numberOfStudents
 print("Our current course has " + str(numberOfStudents) + " students attending it.")
 print("This means that there are " + str(numberOfOccupiedChairs) + " seats taken.")
 ```
+
+Of course if you want to use the value of a variable in an expression or statement the variable must exist. If it doesn't then Python will generate an error like:
+
+```text
+Traceback (most recent call last):
+  File "C:\Users\nicod\Desktop\test.py", line 9, in <module>
+    notAnExistingVariable
+NameError: name 'notAnExistingVariable' is not defined
+```
