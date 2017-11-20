@@ -1,9 +1,10 @@
-
-# Flow Control Statements
-
-The statements inside your source files are generally executed from top to bottom, in the order that they appear. Control flow statements, however, break up the flow of execution by employing decision making, looping, and branching, enabling your program to conditionally execute particular blocks of code. This section describes the decision-making statements (if-then, if-then-else, switch), the looping statements (for, while, do-while), and the branching statements (break, continue, return) supported by the Python programming language.
-
 ## Making Decisions
+
+The statements inside your source files are generally executed from top to bottom, in the order that they appear. Control flow statements, however, break up the flow of execution by employing decision making, enabling your program to conditionally execute particular blocks of code. This section describes the decision-making statements such as if-then, if-then-else and the if-elif-else statements supported by the Python programming language.
+
+The Python language does not support a switch statement as many other programming languages do.
+
+### Conditions
 
 To allow our program to make certain decisions we first need to take a look at conditions and how they are evaluated.
 
@@ -11,7 +12,7 @@ A condition is some sort of comparison (or a combination of comparisons) that ca
 
 The true and false values can differ from language to language, however internal in memory false is most of the time "0" and true is "not 0".
 
-### Comparison Operators
+#### Comparison Operators
 
 The table below shows the available comparison operators that can be used in Python to build a condition.
 
@@ -48,7 +49,7 @@ Note how we need to use two equality signs `==` to test if two values are equal,
 
 While the comparison operators will not often be used in a situation as shown in the code above, they will often be used when making decisions in your program.
 
-### Conditional Operators
+#### Conditional Operators
 
 When creating more complex conditional statements you will need to use the conditional operators to create combinations of conditions.
 
@@ -141,4 +142,4 @@ else:
 
 You may have noticed that the value of `studentScore` can satisfy more than one expression in the code above. However the conditions are checked sequentially and once a condition is satisfied, the appropriate statements are executed and the remaining conditions are not evaluated anymore. The last else-clause is a kind of default path of execution in cause none of the conditions are met. This can also be visually represented using a flowchart.
 
-![Flowchart of an if-else-statement](img/if-elif-else-statement.png)
+![Flowchart of an if-elif-else-statement](img/if-elif-else-statement.png)

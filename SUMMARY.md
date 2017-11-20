@@ -6,7 +6,10 @@
 * [Introduction](python_language/readme.md)
 * [Variables](python_language/variables.md)
 * [Operators](python_language/operators.md)
-* [Flow Control](python_language/flow_control.md)
+* [Making Decisions](python_language/making_decisions.md)
+
+
+
 
 ### Hands on Python
 
