@@ -72,3 +72,73 @@ isAChild = (age >= 0 and age <= 14)      # False
 > #### Warning::Lazy evaluation
 >
 > These operators exhibit "short-circuiting" behavior, which means that the second operand is evaluated only if needed. This is also called lazy evaluations. So for example in an OR condition, if the first operand is `True`, the outcome must also be `True`. For this reason the second operand is not checked anymore. The same happens with an AND condition. If the first operand resolves to `False`, the second operand is not evaluated anymore and the condition resolves to `False`.
+
+### The if statement
+
+The `if` statement is the most basic of all the control flow statements. It tells your program to execute a certain section of code only if a particular condition evaluates to `True`.
+
+Let's take for example a very simple example where we test if the students score is below 70% and if so we output an encouraging speech.
+
+```Python
+studentScore = 60     # Change this to test the code below
+
+print("Your score is " + str(studentScore) + "%")
+if studentScore < 70:
+    print("Come on buddy, you will need to work a little harder.")
+    print("You can do it. Still got some time till the exams.")
+```
+
+If this test evaluates to `False` (meaning that the score is equal or above 70), control jumps to the end of the if statement.
+
+Important to note it that no parentheses are placed around the condition which is often necessary in other programming languages. Python on the other hand requires a colon `:` after the condition and also requires the code block that need to be executed in case the condition evaluates to `True` to be **indented**. This syntax is very typical of Python and often error prone for beginners. So make sure to take care of your indentation.
+
+An if-statement can also be visually represented using a flowchart as shown below.
+
+![Flowchart of an if-statement](img/if-statement.png)
+
+### The if-else Statement
+
+The if-else statement provides a secondary path of execution when an "if" clause evaluates to `False`. Taking the previous example you could output a "good job" speech when the students score is equal or above 70%.
+
+```Python
+studentScore = 60     # Change this to test the code below
+
+print("Your score is " + str(studentScore) + "%")
+if studentScore < 70:
+    print("Come on buddy, you will need to work a little harder.")
+    print("You can do it. Still got some time till the exams.")
+else:
+    print("Good job. Keep up the good work.");
+```
+
+Note that no condition is required for the `else` clause but is does however follow the same syntax as the if-clause concerning the colon `:` at the end and the indentation required for the code block that must be executed in case the else-clause is reached. The else code block is executed when the if-condition does not evaluate to `True`. This can be visually represented with the flowchart shown below.
+
+![Flowchart of an if-else-statement](img/if-else-statement.png)
+
+### If - elif - else statements
+
+The if-else statement can be extended with **even more if statements**. Each if-clause will need a new condition that needs to be checked. The first one that evaluates to `True` is executed, after which control jumps to the end of the if statements. In Python an extra if-clause is added by using the keyword `elif` which is short version of `else if` used in many other programming languages.
+
+Important to understand is that the conditions of all these clauses are checked sequentially and not parallel. So the second is only checked if the first is not met. The third is check only of the second and first are not met, and so on ...
+
+Let's extend our grading example to be a bit more student friendly:
+
+```Python
+studentScore = 60     # Change this to test the code below
+
+print("Your score is " + str(studentScore) + "%")
+if studentScore >= 90:
+    print("Omg, good job. Keep up the work.")
+elif studentScore >= 70:
+    print("Some room for improvement but you are on your way.")
+elif studentScore >= 50:
+    print("Ok. But you may want to considering studying a bit more.")
+elif studentScore >= 30:
+    print("Come on buddy, you will need to work a little harder.")
+else:
+    print("You may want to cancel your holiday vacation for studying.")
+```
+
+You may have noticed that the value of `studentScore` can satisfy more than one expression in the code above. However the conditions are checked sequentially and once a condition is satisfied, the appropriate statements are executed and the remaining conditions are not evaluated anymore. The last else-clause is a kind of default path of execution in cause none of the conditions are met. This can also be visually represented using a flowchart.
+
+![Flowchart of an if-else-statement](img/if-elif-else-statement.png)
