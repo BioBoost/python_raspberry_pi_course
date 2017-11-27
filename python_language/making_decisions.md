@@ -1,5 +1,7 @@
 ## Making Decisions
 
+![Making Decisions](img/condition_roadsigns.png)
+
 The statements inside your source files are generally executed from top to bottom, in the order that they appear. Control flow statements, however, break up the flow of execution by employing decision making, enabling your program to conditionally execute particular blocks of code. This section describes the decision-making statements such as if-then, if-then-else and the if-elif-else statements supported by the Python programming language.
 
 The Python language does not support a switch statement as many other programming languages do.
@@ -70,10 +72,6 @@ age = 16
 isAChild = (age >= 0 and age <= 14)      # False
 ```
 
-> #### Warning::Lazy evaluation
->
-> These operators exhibit "short-circuiting" behavior, which means that the second operand is evaluated only if needed. This is also called lazy evaluations. So for example in an OR condition, if the first operand is `True`, the outcome must also be `True`. For this reason the second operand is not checked anymore. The same happens with an AND condition. If the first operand resolves to `False`, the second operand is not evaluated anymore and the condition resolves to `False`.
-
 ### The if statement
 
 The `if` statement is the most basic of all the control flow statements. It tells your program to execute a certain section of code only if a particular condition evaluates to `True`.
@@ -120,7 +118,7 @@ Note that no condition is required for the `else` clause but is does however fol
 
 The if-else statement can be extended with **even more if statements**. Each if-clause will need a new condition that needs to be checked. The first one that evaluates to `True` is executed, after which control jumps to the end of the if statements. In Python an extra if-clause is added by using the keyword `elif` which is short version of `else if` used in many other programming languages.
 
-Important to understand is that the conditions of all these clauses are checked sequentially and not parallel. So the second is only checked if the first is not met. The third is check only of the second and first are not met, and so on ...
+Important to understand is that the conditions of all these clauses are checked sequentially and not parallel. So the second is only checked if the first is not met. The third is only checked if the second and first are not met, and so on ...
 
 Let's extend our grading example to be a bit more student friendly:
 
@@ -140,6 +138,77 @@ else:
     print("You may want to cancel your holiday vacation for studying.")
 ```
 
-You may have noticed that the value of `studentScore` can satisfy more than one expression in the code above. However the conditions are checked sequentially and once a condition is satisfied, the appropriate statements are executed and the remaining conditions are not evaluated anymore. The last else-clause is a kind of default path of execution in cause none of the conditions are met. This can also be visually represented using a flowchart.
+You may have noticed that the value of `studentScore` can satisfy more than one expression in the code above. Remember that the conditions are checked sequentially and once a condition is satisfied, the appropriate statements are executed and the remaining conditions are not evaluated anymore. The last else-clause is a kind of default path of execution in case none of the conditions are met. This can also be visually represented using a flowchart.
 
 ![Flowchart of an if-elif-else-statement](img/if-elif-else-statement.png)
+
+### Combined Conditions
+
+When building conditions one often needs conditional operators to build more complex conditions.
+
+Take a look at the example below that checks if a frequency value is within a valid range using the conditional `and` operator. It only resolves to `True` if both the left and right operand resolve to `True`.
+
+```python
+frequency = float(input("Please enter the buzzer frequency (Hz): "))
+
+if (frequency >= 100 and frequency <= 10000):
+  print("Buzzing like a hummingbird")
+else:
+  print("Sorry, invalid frequency")
+```
+
+Consider the following example that asks the user to input the value that should be send to the a GPIO. If it is not a valid value (`0` or `1`) than it issues an error.
+
+```python
+value = int(input("Would you like to make the GPIO 1 or 0? "))
+
+if value == 1 or value == 0:
+  print("Setting IO to " + str(value))
+else:
+  print("Sorry you entered an invalid value.")
+```
+
+Combining with the `not` operator it is easy to invert conditions. The example below checks if the user input contains valid values and if it doesn't it gives the user an error message.
+
+```python
+state = str(input("Would you like to make the IO high or low? "))
+
+if not (state == "high" or state == "low"):
+  print("Sorry you entered an unknown state.")
+elif state == "high":
+  print("Making IO go high")
+else:
+  print("Making IO go low")
+```
+
+> #### Warning::Lazy evaluation
+>
+> These operators exhibit "short-circuiting" behavior, which means that the second operand is evaluated only if needed. This is also called lazy evaluations. So for example in an OR condition, if the first operand is `True`, the outcome must also be `True`. For this reason the second operand is not checked anymore. The same happens with an AND condition. If the first operand resolves to `False`, the second operand is not evaluated anymore and the condition resolves to `False`.
+
+### Nesting if-statements
+
+There may be situations where you want to check for another condition after a condition resolves to `True`. In such a situation, you can use the nested if construct.
+
+In a nested if construct, you can have an if-elif-else construct inside another if-elif-else construct. While there is no hard limit on the nesting level, common sence and code readability dictates not to nest deeper than two levels.
+
+Let us take an example application to calculate the BMI (Body Mass Index) op a person. In this case it is a good idea to check if the user did not accidently enter a height of `0`, which would result in a `ZeroDivisionError` crash.
+
+```python
+height = float(input("Please enter your height (m): "))
+weight = float(input("Please enter your weight (kg): "))
+
+if height == 0:
+  print("Sorry, cannot divide by zero as this would crash the application")
+else:
+  bmi = weight / (height * height)
+
+  print("Your BMI is " + str(bmi))
+  if bmi < 18.5:
+    print("You might be a bit underweight")
+  elif bmi >= 18.5 and bmi <= 25:
+    print("All is normal")
+  else:
+    print("You might be a bit overweight")
+```
+
+Note how the application first checks if the divisor is zero in which case it would skip the bmi calculation. If all is good, the bni is calculated and a nested if-elif-else statement displays a informational message to the user. Also note the combined condition `bmi >= 18.5 and bmi <= 25` which checks if the bmi is inside a range.
