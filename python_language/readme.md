@@ -1,4 +1,9 @@
-# Introduction
+[The Python Language](../python_language/readme.md)
+* [Variables](../python_language/variables.md)
+* [Operators](../python_language/operators.md)
+* [Making Decisions](../python_language/making_decisions.md)
+
+# The Python Language
 
 Python is a simple to use programming language that appeals to all sorts of people: scripters, programmers, both beginners and advanced and even kids who learn their first programming skills. It is a high-level language with great support for high-level data types such as flexible arrays and dictionaries. Because of its more general data types it is also applicable to a much larger problem domain then many other programming languages.
 
