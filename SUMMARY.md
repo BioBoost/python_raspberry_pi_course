@@ -13,6 +13,10 @@
 
 ### The Raspberry Pi
 
+<!-- * [Introduction](python_language/readme.md) -->
+* [RPi OS](rpi_operating_system/readme.md)
+* [Linux Basics](linux_basics/readme.md)
+
 ### Hands on Hardware
 
 ### The TouchBerry Pi Shield
