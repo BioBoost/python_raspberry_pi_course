@@ -107,7 +107,7 @@ Generally speaking, `raspi-config` aims to provide the functionality to make the
 
 The most important options are discussed in the sections below.
 
-#### Hostname
+### Hostname
 
 Set the visible name for this Pi on a network.
 
