@@ -12,6 +12,12 @@
 
 ### Hands on Python
 
+<!-- Paar kleine python oefeningen -->
+<!-- Lib importeren -->
+<!-- Looptje schrijven -->
+<!-- If/else ke -->
+<!-- Classke maken en gebruiken -->
+
 ### The Raspberry Pi
 
 * [RPi OS](rpi_operating_system/readme.md)
@@ -20,6 +26,8 @@
 ### Hands on Linux
 
 <!-- Installation of Apache? -->
+<!-- File aanmaken -->
+
 
 ### Hands on Hardware
 
@@ -27,6 +35,9 @@
 * [The Shield](touchberry_shield/readme.md)
 
 ### Hands on TouchBerry
+
+<!-- Eens spelen met die touch -->
+<!-- Ledje doen branden -->
 
 ### MQTT
 

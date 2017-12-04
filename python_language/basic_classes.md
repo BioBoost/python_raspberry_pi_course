@@ -64,7 +64,7 @@ Creating objects from a class in Python uses function notation. Just pretend tha
 obj = NameOfClass()
 ```
 
-To add / access attributes of the class you need to make use of the dot-notation on the `self` keyword. As with variables, in Python one does not need to declare attributes before using them.
+To assign or access attributes of the class you need to make use of the dot-notation on the `self` keyword. As with variables, in Python one does not need to declare attributes before using them.
 
 ```python
 class <NameOfClass>:
