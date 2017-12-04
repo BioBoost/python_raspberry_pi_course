@@ -17,6 +17,10 @@
 * [RPi OS](rpi_operating_system/readme.md)
 * [Linux Basics](linux_basics/readme.md)
 
+### Hands on Linux
+
+<!-- Installation of Apache? -->
+
 ### Hands on Hardware
 
 ### The TouchBerry Pi Shield
