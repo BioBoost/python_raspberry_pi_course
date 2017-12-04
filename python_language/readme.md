@@ -3,6 +3,7 @@
 * [Operators](../python_language/operators.md)
 * [Making Decisions](../python_language/making_decisions.md)
 * [Loop Constructs](../python_language/loop_constructs.md)
+* [Basic Classes](../python_language/basic_classes.md)
 
 # The Python Language
 
