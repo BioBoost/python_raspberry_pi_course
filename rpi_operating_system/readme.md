@@ -49,11 +49,11 @@ If you deployed an OS such as Raspbian than you can attach an HDMI display. You 
 
 ### SSH Connection
 
-Raspbian comes default with the SSH daemon enabled. This allows us to connect to the Pi from a remote computer using the SSH protocol. Before we can do this we will have to determine the IP address of the Pi. In case of a home network you can log on to your router and look for the last IP address that was given by your DHCP server running on the router.
+Raspbian comes default with the SSH daemon disabled. It can be enabled via a startup file or via the `raspi-config` command (see later). SSH allows us to connect to the Pi from a remote computer using the SSH protocol. Before this can be done you will have to enable SSH and also determine the IP address of the Pi.
 
 > #### Note::SSH
 >
-> SSH or Secure Shell is a secure way to connect to a device and execute commands from a distance. In the old days Telnet was the way to go but it sends all commands and login information as clear text. With SSH everything is encrypted. Default SSH daemon listen on port 22. See chapter xxxx for more information on SSH.
+> SSH or Secure Shell is a secure way to connect to a device and execute commands from a distance. In the old days Telnet was the way to go but it sends all commands and login information as clear text. With SSH everything is encrypted. Default SSH daemon listen on port 22.
 
 Connecting to a device using the SSH protocol can be easily achieved using a terminal tool such as Putty. All you have to do is start Putty and select the SSH connection option and specify the IP address of the device as shown in Figure 6. Once the connection is configured you can open it.
 
@@ -91,33 +91,39 @@ If you reboot your Raspberry Pi at this moment you will see the kernel messages 
 
 ## Initial Configuration
 
-Before doing anything with the Raspberry Pi its best to first configure the operating system. This can be achieved by executing the command below to get a grapgical configuration menu:
+> #### Warning::Keyboard Layout
+>
+> If you are using the Raspberry Pi using a display and keyboard you may want to change the keyboard layout before continuing to avoid typing command wrongly or setting a wrong password later on. In Raspbian go to the start menu (raspberry logo) at the top left corner. Next traverse to `Preferences => Mouse and Keyboard Setting => Keyboard => Keyboard Layout`. Now select "Belgium" as country and "Belgian" as variant.
+
+Before doing anything with the Raspberry Pi its best to first configure the operating system. This can be achieved by executing the command below to get a graphical configuration menu:
 
 ```shell
 sudo raspi-config
 ```
 
-Don't worry too much about how this works. This will be explained in a later chapter. Once you're done configuring the Pi, choose the Finish option and let the Pi reboot.
-
 ![Raspbian configuration tool](img/raspi_config.png)
 
-### Expanding the Filesystem
+Generally speaking, `raspi-config` aims to provide the functionality to make the most common configuration changes. This may result in automated edits to  `/boot/config.txt` and various standard Linux configuration files. Some options require a reboot to take effect. If you changed any of those, `raspi-config` will ask if you wish to reboot now when you select the `<Finish>` button.
 
-The first thing we need to do is expand the filesystem. Currently we are using SD cards of 8GB, 16GB or 32GB but the root file system only takes up about 3GB (with more than 80% in use). So to expand the root filesystem to the full SD card we can use the Expand Filesystem configuration script. You will need to reboot the Raspberry Pi to make this available.
+The most important options are discussed in the sections below.
+
+#### Hostname
+
+Set the visible name for this Pi on a network.
 
 ### Change User Password
 
-The "Change User Password" tool allows you to change the default password of the pi user. Make sure to do this before continuing. Watch out if you do this using an external keyboard as the keyboard layout may be configured to qwerty. In this case configure the keyboard layout first by selecting the internationalization menu option.
+The `Change User Password` option allows you to change the default password of the `pi` user. Make sure to do this before continuing. Watch out if you do this using an external keyboard as the keyboard layout may be configured to qwerty. In this case configure the keyboard layout first as mentioned before.
 
-### Enable Boot to Desktop / Scratch
+### Boot Options
 
-You can change what happens when your Pi boots. Use this option to change your boot preference to command line, desktop, or straight to Scratch (graphical programming). In our case we will be using the command line interface.
+Here you can change what happens when your Pi boots. Use this option to change your boot preference to command line, desktop, or straight to Scratch (graphical programming).
 
-### Internationalization Options
+### Localization Options
 
-This will open up a sub menu with internationalization options to configure.
+This will open up a sub menu with internationalization options to configure such as your locale and timezone.
 
-#### Change Locale
+#### Locale
 
 Locales are a framework to switch between multiple languages and allow users to use their language, country, characters, collation order, etc.
 
@@ -129,52 +135,35 @@ Select both `en_US.UTF-8 UTF-8` and `nl_BE.UTF-8 UTF-8`. On the next screen you 
 
 The time zone should be changed to "Europe – Brussels" to reflect our own time zone.
 
-#### Change Keyboard Layout
+### Interfacing Options
 
-This option opens another menu which allows you to select your keyboard layout. It will take a long time to display while it reads all the keyboard types. Changes usually take effect immediately, but may require a reboot.
+Allows us to enable and disable all sorts of interfaces that connect with external peripherals and/or services.
 
-This option however does not seem to work with the current version of the configuration tool.
-
-You can however change between US and BE keyboard layout by executing one of the following commands the next time you get to the command line interface:
-
-```shell
-$ sudo setxkbmap us -variant euro
-```
-
-or for an azerty layout:
-
-```shell
-$ sudo setxkbmap be
-```
-
-Do take note that this change is only temporarily and will not be remembered once you reboot.
-
-You can get some extra information about the current keyboard layout by issuing the following command:
-
-```shell
-setxkbmap -print -verbose 10
-```
-
-### Enable Camera
+#### Enable Camera
 
 In order to use the Raspberry Pi camera module, you must enable it here. This option will also make sure at least 128MB of RAM is dedicated to the GPU.
 
-### Add to Rastrack
+#### SSH
 
-Rastrack is a user-contributed Google Map to which Pi users in the community have added their location; it shows a heat map of where Pi users are known to be around the world. This was set up by young Pi enthusiast Ryan Walmsley in 2012. Rastrack is located at rastrack.co.uk.
+Enable/disable remote command line access to your Pi using SSH (Secure Shell).
 
-Skip this option for the LAB.
+SSH allows you to remotely access the command line of the Raspberry Pi from another computer. Disabling this ensures the SSH service does not start on boot, freeing up processing resources. Note that SSH is disabled by default. If connecting your Pi directly to a public network, you should disable SSH unless you have set up secure passwords for all users.
 
-### Overclock
+#### SPI
 
-It is possible to overclock your Raspberry Pi's CPU. The default is 700MHz but it can be set up to 1000MHz. The overclocking you can achieve will vary; overclocking too high may result in instability.
+Enable/disable automatic loading of SPI (Serial Peripheral Interface) kernel module, needed for products such as PiFace.
 
-Selecting this option shows the following warning:
-*Be aware that overclocking may reduce the lifetime of your Raspberry Pi. If overclocking at a certain level causes system instability, try a more modest overclock. Hold down 'shift' during boot to temporarily disable overclock.*
+#### I2C
+
+Enable/Disable I2C interfaces and automatic loading of the I2C kernel module. Make sure to enable this as our hardware shield (TouchBerry Pi) makes use of I2C to communicate with the RPi.
 
 ### Advanced Options
 
-The advanced options allow the configuration of the SSH daemon, the hostname, the division of the memory with the GPU and so on.
+The advanced options allow the configuration of the more specialized options such as overscan, the division of the memory with the GPU, OpenGL drivers and so on.
+
+#### Expanding the Filesystem
+
+The first thing we need to do is expand the filesystem. Currently we are using SD cards of 8GB, 16GB or 32GB but the root file system only takes up about 3GB (with more than 80% in use). So to expand the root filesystem to the full SD card we can use the Expand Filesystem configuration script. You will need to reboot the Raspberry Pi to make this available.
 
 #### Overscan
 
@@ -184,30 +173,10 @@ On some displays, particularly monitors, disabling overscan will make the pictur
 
 Any changes will take effect after a reboot.
 
-#### Hostname
-
-Set the visible name for this Pi on a network.
-
 #### Memory Split
 
 Change the amount of memory made available to the GPU (Graphics Processing Unit). When using a graphical desktop environment make sure to give the GPU at least 64MB.
 
-#### SSH
-
-Enable/disable remote command line access to your Pi using SSH (Secure Shell).
-
-SSH allows you to remotely access the command line of the Raspberry Pi from another computer. Disabling this ensures the SSH service does not start on boot, freeing up processing resources. Note that SSH is disabled by default. If connecting your Pi directly to a public network, you should disable SSH unless you have set up secure passwords for all users.
-
-#### SPI
-Enable/disable automatic loading of SPI (Serial Peripheral Interface) kernel module, needed for products such as PiFace.
-
-#### Audio
-Force audio out through HDMI or a 3.5mm jack.
-
-#### Update
+### Update
 
 Update this tool (raspi-config) to the latest version. This requires an active Internet connection.
-
-## Reboot
-
-Last but not least save the configuration and let the Raspberry Pi reboot. It is now ready for use.
