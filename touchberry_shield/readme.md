@@ -18,9 +18,11 @@ The schematic of the other sensors is shown below:
 
 ![Schematic of the other sensors](img/schematic_sensors.png)
 
+All these ICs (Integrated Circuits) are connected to the Raspberry Pi via an I2c (Inter-Integrated-Circuit) bus that allows communication via 2 wires.
+
 ## Communicating using I2C
 
-Why I2c (Inter-Integrated-Circuit bus) and not for example serial port? Because serial ports are asynchronous (no clock data is transmitted), devices using them must agree ahead of time on a data rate. The two devices must also have clocks that are close to the same rate, and will remain so–excessive differences between clock rates on either end will cause garbled data.
+Why I2c and not for example serial port? Because serial ports are asynchronous (no clock data is transmitted), devices using them must agree ahead of time on a data rate. The two devices must also have clocks that are close to the same rate, and will remain so–excessive differences between clock rates on either end will cause garbled data.
 
 Another core fault in asynchronous serial ports is that they are inherently suited to communications between two, and only two, devices. While it is possible to connect multiple devices to a single serial port, bus contention (where two devices attempt to drive the same line at the same time) is always an issue and must be dealt with carefully to prevent damage to the devices in question, usually through external hardware.
 
