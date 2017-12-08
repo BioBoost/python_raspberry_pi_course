@@ -26,18 +26,31 @@
 ### Hands on Linux
 
 <!-- Installation of Apache? -->
-<!-- File aanmaken -->
-
+<!-- HTML pagina met python -->
+<!-- RPI als access point (zie tutorial thomas) -->
 
 ### Hands on Hardware
 
+* [LED](hands_on_rpi_hardware/led.md)
+
+<!-- Led laten branden -->
+<!-- LDR inlezen -->
+<!-- Pieze aansturen (fake pwm) -->
+<!-- Servo aansturen -->
+
 ### The TouchBerry Pi Shield
+
 * [The Shield](touchberry_shield/readme.md)
+<!-- Eens spelen met die touch -->
+<!-- Ledje doen branden -->
+<!-- Temperatuur uitlezen -->
+<!-- Axellerometer  -->
 
 ### Hands on TouchBerry
 
-<!-- Eens spelen met die touch -->
-<!-- Ledje doen branden -->
+<!-- Led laten branden bij touch -->
+<!-- Kleur led laten branden op basis van Temperatuur -->
+<!-- Tilt ofzo -->
 
 ### MQTT
 
