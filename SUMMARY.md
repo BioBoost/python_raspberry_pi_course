@@ -25,9 +25,10 @@
 
 ### Hands on Linux
 
-<!-- Installation of Apache? -->
+* [Apache Webserver](hands_on_linux/apache_webserver.md)
+* [RPi Access Point](hands_on_linux/access_point.md)
+
 <!-- HTML pagina met python -->
-<!-- RPI als access point (zie tutorial thomas) -->
 
 ### Hands on Hardware
 
