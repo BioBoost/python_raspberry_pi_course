@@ -1,5 +1,10 @@
 ## Turning on an LED with your Raspberry Pi's GPIO Pins
 
+* **Difficulty**: beginner
+* **Goal**: Connecting an LED to the Raspberry Pi GPIO's and turning it on and off in a loop. This results in a flashing LED.
+
+### Introduction
+
 The Raspberry Pi has several GPIO (General Purpose Input Output) pins that can be used to connect all kinds of hardware. Using a little software you change their state to be HIGH (`1`) or LOW (`0`) or you can read the value that external hardware is presenting at the input.
 
 This hands on will guide you through the process of attaching an LED to a GPIO of the Raspberry Pi and controlling it via a small Python script.
@@ -28,7 +33,7 @@ If we were to connect the LED directly to the power supply it would draw infinit
 
 While a 1k resistor works to limit the current through the LED, it will not be ideal for the voltage and type of LEDs used here. In practice you should always take the voltage drop of the LED, the power supply and the preferred current (often 10mA) into account. There are various sites you can use for this like for example: [http://www.ohmslawcalculator.com/led-resistor-calculator](http://www.ohmslawcalculator.com/led-resistor-calculator).
 
-### Schematic
+### Hardware Schematic and BreadBoard
 
 ![LED Connection Schematic](img/led_schematic.png)
 
@@ -46,7 +51,7 @@ Connecting everything correctly should show a similar result to the image shown 
 
 ![BreadBoard connections of LED](img/led_breadboard.png)
 
-### WiringPi
+### WiringPi Package
 
 WiringPi is a PIN based GPIO access library written in C for the BCM2835 used in the Raspberry Pi. It's released under the GNU LGPLv3 license and is usable from C, C++ and RTB (BASIC) as well as many other languages with suitable wrappers. It's designed to be familiar to people who have used the Arduino wiring system.
 
@@ -64,7 +69,7 @@ pip3 install wiringpi
 
 ### Example program
 
-A small example program that turns the LED on is shown below:
+A small example program that turns the LED on and back off after 1 second is shown below:
 
 ```Python
 import wiringpi
@@ -78,12 +83,17 @@ wiringpi.pinMode(LED, 1)        # Set LED pin to 1 ( OUTPUT )
 wiringpi.digitalWrite(LED, 0)   # Write 0 ( LOW ) to LED pin
 sleep(1)
 wiringpi.digitalWrite(LED, 1)   # Write 1 ( HIGH ) to LED pin
-sleep(1)
+
+print("Done")
 ```
 
 Save this program in a python file called for example `led.py`. Use `python3 led.py` as a command to execute the program.
 
+### Questions
+
 Can you explain why the LED burns when the GPIO is made low instead of high?
+
+### Challenges
 
 Try to alter the program to:
 * Turn the LED on and off in an infinite loop with a chosen delay

@@ -33,7 +33,7 @@
 
 * [LED](hands_on_rpi_hardware/led.md)
 
-<!-- Led laten branden -->
+<!-- Switch inlezen -->
 <!-- LDR inlezen -->
 <!-- Pieze aansturen (fake pwm) -->
 <!-- Servo aansturen -->
