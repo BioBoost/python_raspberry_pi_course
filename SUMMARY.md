@@ -14,8 +14,8 @@
 
 * [Exercise 1](TODO.md)
 * [Exercise 2](TODO.md)
-* [LED class](hands_on_python/led_class.md)
-* [Solutions](TODO.md)
+* [An LED class](hands_on_python/led_class.md)
+* [Solutions](hands_on_python/solutions.md)
 
 ### The Raspberry Pi
 

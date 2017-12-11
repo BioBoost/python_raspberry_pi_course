@@ -1,3 +1,4 @@
 # Hands on Python
 
-* [LED class](../hands_on_python/led_class.md)
+* [An LED class](../hands_on_python/led_class.md)
+* [Solutions](../hands_on_python/solutions.md)
