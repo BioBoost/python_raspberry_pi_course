@@ -45,7 +45,7 @@
 ### Internet of Things
 
 * [Introduction](TODO.md)
-* [All Things Talk](TODO.md)
+* [All Things Talk](allthingstalk/README.md)
 * [MQTT](TODO.md)
 * [LoRaWAN](TODO.md)
 
