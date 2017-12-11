@@ -14,7 +14,7 @@ In addition to your Raspberry Pi running Raspbian, you will also need:
 * A Breadboard
 * An LED
 * A 1k resistor
-* Two Male-Female jumper wires
+* Two male-female jumper wires
 
 Most of this can be found in the Arduino Starter Kit provided. The jumper wires can be found in a separate box provided by the lector.
 

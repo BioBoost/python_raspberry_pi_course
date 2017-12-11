@@ -26,7 +26,7 @@
 
 * [Introduction](hands_on_rpi_hardware/readme.md)
 * [LED](hands_on_rpi_hardware/led.md)
-* [LDR](TODO.md)
+* [LDR](hands_on_rpi_hardware/ldr.md)
 * [Switch](TODO.md)
 * [Solutions](TODO.md)
 
