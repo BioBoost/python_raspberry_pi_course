@@ -12,49 +12,49 @@
 
 ### Hands on Python
 
-<!-- Paar kleine python oefeningen -->
-<!-- Lib importeren -->
-<!-- Looptje schrijven -->
-<!-- If/else ke -->
-<!-- Classke maken en gebruiken -->
+* [Exercise 1](TODO.md)
+* [Exercise 2](TODO.md)
+* [LED class](TODO.md)
+* [Solutions](TODO.md)
 
 ### The Raspberry Pi
 
 * [RPi OS](rpi_operating_system/readme.md)
 * [Linux Basics](linux_basics/readme.md)
 
-### Hands on Linux
-
-* [Apache Webserver](hands_on_linux/apache_webserver.md)
-* [RPi Access Point](hands_on_linux/access_point.md)
-
-<!-- HTML pagina met python -->
-
-### Hands on Hardware
+### Hands on Raspberry Hardware
 
 * [Introduction](hands_on_rpi_hardware/readme.md)
 * [LED](hands_on_rpi_hardware/led.md)
-
-<!-- Switch inlezen -->
-<!-- LDR inlezen -->
-<!-- Pieze aansturen (fake pwm) -->
-<!-- Servo aansturen -->
+* [LDR](TODO.md)
+* [Switch](TODO.md)
+* [Solutions](TODO.md)
 
 ### The TouchBerry Pi Shield
 
 * [The Shield](touchberry_shield/readme.md)
-<!-- Eens spelen met die touch -->
-<!-- Ledje doen branden -->
-<!-- Temperatuur uitlezen -->
-<!-- Axellerometer  -->
 
 ### Hands on TouchBerry
 
-<!-- Led laten branden bij touch -->
-<!-- Kleur led laten branden op basis van Temperatuur -->
-<!-- Tilt ofzo -->
+* [Introduction](TODO.md)
+* [LEDs](TODO.md)
+* [Touch](TODO.md)
+* [Temperature](TODO.md)
+* [Solutions](TODO.md)
 
-### MQTT
+### Internet of Things
+
+* [Introduction](TODO.md)
+* [All Things Talk](TODO.md)
+* [MQTT](TODO.md)
+* [LoRaWAN](TODO.md)
+
+### Hands on IoT
+
+* [LDR and All Things Talk](TODO.md)
+* [Publish your Temperature via MQTT](TODO.md)
+* [Touch VU meter](TODO.md)
+* [Solutions](TODO.md)
 
 ---
 
