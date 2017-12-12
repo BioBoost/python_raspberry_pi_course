@@ -1,7 +1,6 @@
-## Turning on an LED with your Raspberry Pi's GPIO Pins
+## Controlling an LED via GPIO
 
-* **Difficulty**: beginner
-* **Goal**: Connecting an LED to the Raspberry Pi GPIO's and turning it on and off in a loop. This results in a flashing LED.
+The goal of this guide is to connect an LED to the Raspberry Pi GPIO's and turn it on and off. Next the LED class build earlier needs to be adapted to make use of the GPIO and control a real life LED.
 
 ### Introduction
 
@@ -77,24 +76,144 @@ from time import sleep
 
 wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
 
-LED = 23    # Use GPIO23 for the LED
+PIN_NUMBER = 23    # Use GPIO23 for the LED
 
-wiringpi.pinMode(LED, 1)        # Set LED pin to 1 ( OUTPUT )
-wiringpi.digitalWrite(LED, 0)   # Write 0 ( LOW ) to LED pin
+wiringpi.pinMode(PIN_NUMBER, 1)        # Set LED pin to 1 ( OUTPUT )
+
+print("Setting LED on")
+wiringpi.digitalWrite(PIN_NUMBER, 0)   # Write 0 ( LOW ) to LED pin
 sleep(1)
-wiringpi.digitalWrite(LED, 1)   # Write 1 ( HIGH ) to LED pin
+
+print("Setting LED off")
+wiringpi.digitalWrite(PIN_NUMBER, 1)   # Write 1 ( HIGH ) to LED pin
 
 print("Done")
 ```
 
-Save this program in a python file called for example `led.py`. Use `python3 led.py` as a command to execute the program.
+Save this program in a python file called for example `led_hw.py`. Use `python3 led_hw.py` as a command to execute the program.
 
 ### Questions
 
 Can you explain why the LED burns when the GPIO is made low instead of high?
 
-### Challenges
+### Guide
 
-Try to alter the program to:
-* Turn the LED on and off in an infinite loop with a chosen delay
-* Turn the LED on and off 10 times and then quit the program
+Let us extend the Led class from the previous hands on and add the hardware interaction to it.
+
+Below is the code to start from (this is the solution of the Led class pasted below the imports of the previous code example):
+
+```python
+import wiringpi
+from time import sleep
+
+class Led(object):
+  def __init__(self):
+    self.off()
+
+  def on(self):
+    self.set_state(True)
+
+  def off(self):
+    self.set_state(False)
+
+  def set_state(self, state):
+    self.isOn = state
+
+  def get_state(self):
+    return self.isOn
+
+# The main program
+wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
+
+PIN_NUMBER = 23    # Use GPIO23 for the LED
+
+wiringpi.pinMode(PIN_NUMBER, 1)        # Set LED pin to 1 ( OUTPUT )
+
+print("Setting LED on")
+wiringpi.digitalWrite(PIN_NUMBER, 0)   # Write 0 ( LOW ) to LED pin
+sleep(1)
+
+print("Setting LED off")
+wiringpi.digitalWrite(PIN_NUMBER, 1)   # Write 1 ( HIGH ) to LED pin
+
+print("Done")
+```
+
+First of all we can place the initialization of the wiringPi GPIO library in the constructor of our Led class. This will automatically take care of the initialization when an Led object is created. You can remove the line of code from your main program code.
+
+
+```python
+# .....
+class Led(object):
+  def __init__(self):
+    wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
+    self.off()
+# .....
+```
+
+Next we create an attribute `pinNumber` that holds the number of the GPIO pin. It can be initialized to the value of `23` inside the constructor of our Led class as shown below:
+
+```python
+# .....
+class Led(object):
+  def __init__(self):
+    self.pinNumber = 23
+    wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
+    self.off()
+# .....
+```
+
+Last we should also set the pinmode of the GPIO inside the constructor. We place it here because it should only be set once for an Led and it should be set before we change the actual value of the GPIO. Do make sure to place it behind the initialization of the wiring Pi library (same as in the main program). The `PIN_NUMBER` does need to be changed by `self.pinNumber`, the attribute we initialized before.
+
+```python
+# .....
+class Led(object):
+  def __init__(self):
+    self.pinNumber = 23
+    wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
+    wiringpi.pinMode(self.pinNumber, 1)        # Set LED pin to 1 ( OUTPUT )
+    self.off()
+# .....
+```
+
+Summarized, the constructor of the Led class creates an attribute with the pin number of the GPIO we want to use for the Led. It initializes the wiring pi library and it sets the GPIO to an output. Last it also turns the Led off.
+
+The last part of the Led class we need to modify is the `set_state` method to actually set the GPIO based on the value of the state.
+
+```python
+# .....
+class Led(object):
+  # .....
+  def set_state(self, state):
+    self.isOn = state
+    wiringpi.digitalWrite(self.pinNumber, state)   # Write 0 ( LOW ) to LED pin
+# .....
+```
+
+All the code that was placed inside the Led class can now be removed from the main program. Instead we need to create an Led object and call the `on()` and `off()` methods.
+
+```python
+import wiringpi
+from time import sleep
+
+# ....
+
+# The main program
+led = Led()
+
+print("Setting LED on")
+led.on()
+
+sleep(1)
+
+print("Setting LED off")
+led.off()
+
+print("Done")
+```
+
+Our main application is a lot cleaner and more readable now.
+
+Now try for yourself to alter the main program to let the LED flash a number of times using a loop.
+
+The full solution can be found in the solutions section.
