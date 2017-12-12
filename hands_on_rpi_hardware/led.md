@@ -66,6 +66,14 @@ You can install the package on your Raspberry Pi by executing the following comm
 pip3 install wiringpi
 ```
 
+#### WiringPi vs RPi.GPIO
+
+WiringPi is a C library while RPi.GPIO is native a Python module. Bindings have been provided for other languages like Python and Java. WiringPi has the advantage that it comes with a command line utility called `gpio` which can be run by a non-root user. This utility makes it possible to control GPIO pins from the command line. Read about it here: [http://wiringpi.com/the-gpio-utility/](http://wiringpi.com/the-gpio-utility/).
+
+WiringPi doesn't need to be run as root, but programs built with the RPi.GPIO module do need to be run as root.
+
+WiringPi also has a lot more features available such as SPI, I2C, Gert board support, ...
+
 ### Example program
 
 A small example program that turns the LED on and back off after 1 second is shown below:
@@ -82,6 +90,7 @@ wiringpi.pinMode(PIN_NUMBER, 1)        # Set LED pin to 1 ( OUTPUT )
 
 print("Setting LED on")
 wiringpi.digitalWrite(PIN_NUMBER, 0)   # Write 0 ( LOW ) to LED pin
+
 sleep(1)
 
 print("Setting LED off")
@@ -91,10 +100,6 @@ print("Done")
 ```
 
 Save this program in a python file called for example `led_hw.py`. Use `python3 led_hw.py` as a command to execute the program.
-
-### Questions
-
-Can you explain why the LED burns when the GPIO is made low instead of high?
 
 ### Guide
 
@@ -140,7 +145,6 @@ print("Done")
 ```
 
 First of all we can place the initialization of the wiringPi GPIO library in the constructor of our Led class. This will automatically take care of the initialization when an Led object is created. You can remove the line of code from your main program code.
-
 
 ```python
 # .....
