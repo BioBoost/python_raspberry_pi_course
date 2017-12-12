@@ -4,6 +4,7 @@
 * [Making Decisions](../python_language/making_decisions.md)
 * [Loop Constructs](../python_language/loop_constructs.md)
 * [Basic Classes](../python_language/basic_classes.md)
+* [Lists](../python_language/lists.md)
 
 # The Python Language
 
