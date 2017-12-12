@@ -28,6 +28,8 @@ class <NameOfClass>:
 The `class` keyword is mandatory and so is the name of the class. Naming classes in Python follows Camel Case convention.
 <!-- TODO: Descriptive string explanation -->
 
+### Methods
+
 Adding functionality to a class in the form of methods is achieved using the `def` keyword and the template shown below:
 
 ```python
@@ -40,6 +42,8 @@ class <NameOfClass>:
 ```
 
 The `self` keyword is implicitly populated with the object the method is called on, however when defining the method inside the class it needs to be explicitly noted as the first argument. The rest of the arguments are the data that the creator of the class requires for the method to do its processing.
+
+#### Constructor
 
 A special method is the constructor which is responsible for delivering a valid object when the user of the class request the creation of a new instance. This method has the mandatory name `__init__`. Based on your requirements you can pass arguments to the object's constructor.
 
@@ -58,11 +62,15 @@ class <NameOfClass>:
 
 Compared to many other programming languages Python does not allow you to create multiple constructors (constructor overloading).
 
+### Creating Objects from a Class
+
 Creating objects from a class in Python uses function notation. Just pretend that the class object is a parameterless function that returns a new instance of the class (actually the constructor method is implicitly called).
 
 ```python
 obj = NameOfClass()
 ```
+
+### Instance Variables or Attributes
 
 To assign or access attributes of the class you need to make use of the dot-notation on the `self` keyword. As with variables, in Python one does not need to declare attributes before using them.
 
@@ -79,6 +87,8 @@ class <NameOfClass>:
     # Statements ...
     self.<name_of_attribute> = <value>
 ```
+
+### Returning Values from Methods
 
 Methods can also return a single value using the `return` keyword. In this case the code that calls the method can assign the return value to a variable.
 
