@@ -37,10 +37,10 @@
 ### Hands on TouchBerry
 
 * [Introduction](TODO.md)
-* [LEDs](TODO.md)
+* [LEDs](hands_on_touchberry/leds.md)
 * [Touch](TODO.md)
 * [Temperature](TODO.md)
-* [Solutions](TODO.md)
+* [Solutions](hands_on_touchberry/solutions.md)
 
 ### Internet of Things
 
