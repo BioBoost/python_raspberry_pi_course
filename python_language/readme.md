@@ -41,15 +41,23 @@ Python comes in two flavors. The 2.x version and the 3.x version. Both are not c
 
 This course will make use of the newer 3.x flavor so make sure to install the correct version.
 
+### On the Raspberry Pi
+
+If using the newest version of the Raspbian Linux distribution, you should already have both python interpreters available. Both have been supplied as the system is still very dependent on python 2 but wants to encourage the usage of python 3.
+
+By default python 2 is used. If you wish to use python 3 you can do so by adding a `3` after the command line tools. For example `python3` for the interpreter or `pip3` for the package manager. More on this later.
+
+### Installing on Windows
+
 When installing the package make sure to **add Python to the PATH**.
 
 ![Installing Python](img/installing_python.png)
 
 Just hit "Install Now" and let the wizard do his magic.
 
-> #### Warning::If Python 2.x is already installed
+> #### Warning::If Python 2.x is already installed on Windows
 >
-> If you already have Python 2.x installed you may need to remove it from your path before you will be able to use Python 3.x as default. This can be achieved by going to `Advanced System Settings => Environment Variables => System Variables` and removing `C:\Python27\` and `C:\Python27\Scripts` from the path variable.
+> If you already have Python 2.x installed on Windows you may need to remove it from your path before you will be able to use Python 3.x as default. This can be achieved by going to `Advanced System Settings => Environment Variables => System Variables` and removing `C:\Python27\` and `C:\Python27\Scripts` from the path variable.
 
 ## Hello World in Python
 
@@ -61,7 +69,7 @@ Basically there are two ways to write some Python code.
 * First is via the interactive interpreter.
 * Second by writing a script with the extension `.py` and executing it with the interpreter.
 
-The first approach is useful to play around with some statements. If you close the terminal all code is lost. That is why it is only used for testing purposes. The interactive interpreter can be launched by opening a `powershell` and typing `python`. The result should be a Python 3.0 interactive interpreter terminal:
+The first approach is useful to play around with some statements. If you close the terminal all code is lost. That is why it is only used for testing purposes. The interactive interpreter can be launched by opening a `powershell` and typing `python` in powershell or `python3` on Raspbian. The result should be a Python 3.0 interactive interpreter terminal:
 
 ![A Python 3.x interactive interpreter](img/python_3_interactive_interpreter.png)
 
