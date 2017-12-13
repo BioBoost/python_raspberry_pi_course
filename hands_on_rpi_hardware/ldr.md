@@ -1,11 +1,8 @@
 ## Using an LDR as a switch on the Raspberry Pi's GPIO Pins
 
-* **Difficulty**: medium
-* **Goal**: Connecting an LDR to the Raspberry Pi GPIO's and reading its state in a loop. This results in a light dependent switch.
+The goal of this guide is to connect an LDR to the Raspberry Pi GPIO's and reading its state in a loop. This results in a light dependent switch.
 
 ### Introduction
-
-The Raspberry Pi has several GPIO (General Purpose Input Output) pins that can be used to connect all kinds of hardware. Using a little software you change their state to be HIGH (`1`) or LOW (`0`) or you can read the value that external hardware is presenting at the input.
 
 This hands on will guide you through the process of attaching an LDR (Light Dependent Resistor) to a GPIO of the Raspberry Pi and reading its state via a small Python script.
 
@@ -16,13 +13,13 @@ In addition to your Raspberry Pi running Raspbian, you will also need:
 * A 1k resistor
 * a 10k resistor
 * a 220 ohm resistor
-* an general purpose NPN transistor such as BC547
-* Three male-female jumper wires
-* Three or four male-male jumper wires
+* any general purpose NPN transistor such as a BC547
+* three male-female jumper wires
+* three or four male-male jumper wires
 
 Most of this can be found in the Arduino Starter Kit provided. The jumper wires can be found in a separate box provided by the lector.
 
-Always consult the datasheet of components that have multiple pins or polarities as no to connect any of the terminals to the wrong connections. The most critical part here is the NPN transistor. The connections are shown below and were found in the datasheet.
+Always consult the datasheet of components that have multiple pins or polarities as not to connect any of the terminals to the wrong connections. The most critical part here is the NPN transistor. The connections are shown below and were found in the datasheet.
 
 ![BC547 Pinout](img/bc547_pinout.png)
 
@@ -36,9 +33,9 @@ The best way to read an LDR state (`ON` or `OFF`) is by using a transistor as a 
 
 It uses the LDR as the upper part of a voltage divider. When the LDR resistance drops, the voltage at the transistor base rises and turns it on. The transistor can be any general purpose NPN.
 
-The first part of this circuit is the LDR and the base resistor. Together they work as a voltage divide. When the light is off, the LDR resistance is very high and then the voltage that goes to the base of the transistor is very low, making the GPIO pin go HIGH.
+The first part of this circuit is the LDR and the base resistor. Together they work as a voltage divider. When the light is off, the LDR resistance is very high and then the voltage that goes to the base of the transistor is very low, making the GPIO pin go HIGH.
 
-When the light is on, the LDR resistance is very low and the voltage going to the base of the transistor is enough to activate the circuit and makes the GPIO pin go LOW since the current will flow to the path of less resistance, which is to the GND.
+When the light is on, the LDR resistance is very low and the voltage going to the base of the transistor is enough to activate the circuit and make the GPIO pin go LOW since the current will flow to the path of less resistance, which is to the GND.
 
 We can calculate the resistor value based on whereabouts we want the turn on to happen.
 
@@ -56,58 +53,46 @@ Connecting everything correctly should show a similar result to the image shown 
 
 ![BreadBoard connections of LDR](img/ldr_breadboard.png)
 
-### WiringPi Package
-
-WiringPi is a PIN based GPIO access library written in C for the BCM2835 used in the Raspberry Pi. It's released under the GNU LGPLv3 license and is usable from C, C++ and RTB (BASIC) as well as many other languages with suitable wrappers. It's designed to be familiar to people who have used the Arduino wiring system.
-
-WiringPi includes a command-line utility `gpio` which can be used to program and setup the GPIO pins. You can use this to read and write the pins and even use it to control them from shell scripts.
-
-We will be using the WiringPi Python package to control the GPIO pins.
-
-More information can be found at the GitHub page [https://github.com/WiringPi/WiringPi-Python](https://github.com/WiringPi/WiringPi-Python)
-
-You can install the package on your Raspberry Pi by executing the following command:
-
-```shell
-pip3 install wiringpi
-```
-
 ### Example program
 
-A small example program that read's the state of the GPIO pin is shown below:
+A small example program that read's the state of the GPIO pin is shown below. Notice how again a class was made of the LDR.
 
 ```Python
 import wiringpi
 
-wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
+class LDR(object):
+  def __init__(self):
+    self.pinNumber = 24
+    wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
+    wiringpi.pinMode(self.pinNumber, 0)        # Set LDR pin to 0 ( INPUT )
 
-LDR = 24    # Use GPIO24 for the LDR
+  def get_state(self):
+    return wiringpi.digitalRead(self.pinNumber)
 
-wiringpi.pinMode(LDR, 0)        # Set LDR pin to 0 ( INPUT )
 
-state = wiringpi.digitalRead(LDR)
+# Create an object of LDR
+switch = LDR()
 
-print("State = " + str(state))
+# Get the state of the LDR
+print("State = " + str(switch.get_state()))
 
 print("Done")
 ```
 
-Save this program in a python file called for example `ldr.py`. Use `python3 ldr.py` as a command to execute the program.
+Save this program in a python file called for example `ldr_hw.py`. Execute it to verify that your hardware is working properly.
 
-### Questions
+### Challenge
 
-Can you explain why the state is high when the LDR is dark?
+Alter the previous program to read the state of the LDR in a endless loop. Do make sure to add a delay between reading the state using the `sleep()` function of python.
 
-### Challenges
-
-Try to alter the program to read the state of the LDR in a endless loop. Do make sure to add a delay between reading the state using the `sleep()` function of python.
-
-You can import the sleep function to introduce a delay in your code:
+You will need to import the sleep function to introduce a delay in your code:
 
 ```python
 from time import sleep
 
+# ....
+
 sleep(1)      # Sleep (seconds)
 ```
 
-If you wish to have another challenge you can also add an LED to turn on and off based on the state of the LDR. Check out [Turning on an LED with your Raspberry Pi's GPIO Pins](../hands_on_rpi_hardware/led.md) for more information.
+The full solution can be found in the solutions section.

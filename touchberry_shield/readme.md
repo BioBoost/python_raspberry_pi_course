@@ -1,6 +1,8 @@
-# The TouchBerry Pi Shield
+# The Touchberry Pi Shield
 
-The TouchBerry Pi shield is a shield that can be plugged on top of the Raspberry Pi (2 and 3) and enables a touch interface through 7 capacitive buttons.
+The Touchberry Pi shield is a shield that can be plugged on top of the Raspberry Pi (2, 3 and Zero) and enables a touch interface through 7 capacitive buttons. It also equipped with other hardware such as 5 RGB LED's that allow us to output some information to the user.
+
+![Render of the Touchberry Pi shield v2.0](img/perspective.png)
 
 Version 2.0 of the shield has the following hardware on board:
 * AT42QT1070 I2C capacitive touch sensor IC [https://www.mouser.com/ds/2/268/Atmel-9596-AT42-QTouch-BSW-AT42QT1070_Datasheet-1065970.pdf](https://www.mouser.com/ds/2/268/Atmel-9596-AT42-QTouch-BSW-AT42QT1070_Datasheet-1065970.pdf)
@@ -9,6 +11,7 @@ Version 2.0 of the shield has the following hardware on board:
 * 24LC65 64K I2C Smart Serial EEPROM [http://ww1.microchip.com/downloads/en/DeviceDoc/21073K.pdf](http://ww1.microchip.com/downloads/en/DeviceDoc/21073K.pdf)
 * MCP9800 2-Wire High-Accuracy Temperature Sensor [http://ww1.microchip.com/downloads/en/DeviceDoc/21909d.pdf](http://ww1.microchip.com/downloads/en/DeviceDoc/21909d.pdf)
 * MMA8451QT MEMS Accelerometer, 3-Axis [https://www.nxp.com/docs/en/data-sheet/MMA8451Q.pdf](https://www.nxp.com/docs/en/data-sheet/MMA8451Q.pdf)
+* An NRF-compatible connector for connecting NRF24l01+ modules (allowing small distance baseband low power wireless communication)
 
 The schematic of the QT1070 touch sensor and the TLC59116 LED driver is shown below:
 

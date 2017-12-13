@@ -1,13 +1,36 @@
 ## Hands on Python Solutions
 
-### Exercise 1
+### Prime Numbers
 
-### Exercise 2
+The script below determines all the prime numbers up until a user specified number.
+
+```python
+def is_prime(numberToCheck):
+  divisor = 2
+
+  while divisor < numberToCheck:
+    remainder = numberToCheck % divisor
+    if remainder == 0:
+      return False
+
+    divisor += 1
+
+  return True
+
+# The original part
+print("Welcome to our Python Prime Checker app")
+numberToCheck = int(input("Please enter a positive number to check for prime: "))
+
+print("Primes: ")
+for number in range(1,numberToCheck):
+    if is_prime(number):
+        print(str(number), end=' ')
+```
 
 ### An LED class
 
 ```python
-class LED(object):
+class Led(object):
   def __init__(self):
     self.set_state(False)
 
@@ -21,7 +44,7 @@ class LED(object):
 or with an even more user-friendly interface:
 
 ```python
-class LED(object):
+class Led(object):
   def __init__(self):
     self.off()
 
@@ -41,7 +64,7 @@ class LED(object):
 And a little program to test our LED class:
 
 ```python
-led = LED()
+led = Led()
 print("LED is " + str(led.get_state()))
 led.on()
 print("LED is " + str(led.get_state()))

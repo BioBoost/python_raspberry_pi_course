@@ -9,25 +9,25 @@
 * [Making Decisions](python_language/making_decisions.md)
 * [Loop Constructs](python_language/loop_constructs.md)
 * [Basic Classes](python_language/basic_classes.md)
+* [Lists](python_language/lists.md)
 
 ### Hands on Python
 
-* [Exercise 1](TODO.md)
-* [Exercise 2](TODO.md)
+* [Introduction](hands_on_python/readme.md)
+* [Prime Numbers](hands_on_python/prime_numbers.md)
 * [An LED class](hands_on_python/led_class.md)
 * [Solutions](hands_on_python/solutions.md)
 
 ### The Raspberry Pi
 
-* [RPi OS](rpi_operating_system/readme.md)
-* [Linux Basics](linux_basics/readme.md)
+* [The Raspberry Pi](the_raspberry_pi/readme.md)
 
 ### Hands on Raspberry Hardware
 
 * [Introduction](hands_on_rpi_hardware/readme.md)
 * [LED](hands_on_rpi_hardware/led.md)
 * [LDR](hands_on_rpi_hardware/ldr.md)
-* [Switch](TODO.md)
+* [LED and LDR](hands_on_rpi_hardware/combination_led_ldr.md)
 * [Solutions](TODO.md)
 
 ### The TouchBerry Pi Shield
@@ -37,10 +37,10 @@
 ### Hands on TouchBerry
 
 * [Introduction](TODO.md)
-* [LEDs](TODO.md)
+* [LEDs](hands_on_touchberry/leds.md)
 * [Touch](TODO.md)
 * [Temperature](TODO.md)
-* [Solutions](TODO.md)
+* [Solutions](hands_on_touchberry/solutions.md)
 
 ### Internet of Things
 
