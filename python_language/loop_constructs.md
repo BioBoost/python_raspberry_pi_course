@@ -23,7 +23,7 @@ for varName in range(start,end,stepsize):
 ```
 
 * **varName**: the name of the local variable taking the value of the current item in the list (often `i`)
-* `range` is a function used to create and iterator which starts at `start` (inclusive) and ends at `end` (exclusive). An optional `stepsize` can be provided.
+* `range` is a function used to create an iterator which starts at `start` (inclusive) and ends at `end` (exclusive). An optional `stepsize` can be provided.
 
 When you're using an iterator, every loop of the for statement produces the next number on the fly.
 

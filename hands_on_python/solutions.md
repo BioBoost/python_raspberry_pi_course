@@ -7,7 +7,7 @@
 ### An LED class
 
 ```python
-class LED(object):
+class Led(object):
   def __init__(self):
     self.set_state(False)
 
@@ -21,7 +21,7 @@ class LED(object):
 or with an even more user-friendly interface:
 
 ```python
-class LED(object):
+class Led(object):
   def __init__(self):
     self.off()
 
@@ -41,7 +41,7 @@ class LED(object):
 And a little program to test our LED class:
 
 ```python
-led = LED()
+led = Led()
 print("LED is " + str(led.get_state()))
 led.on()
 print("LED is " + str(led.get_state()))

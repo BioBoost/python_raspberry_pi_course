@@ -1,7 +1,8 @@
 ## Using an LDR as a switch on the Raspberry Pi's GPIO Pins
 
-* **Difficulty**: medium
-* **Goal**: Connecting an LDR to the Raspberry Pi GPIO's and reading its state in a loop. This results in a light dependent switch.
+<!-- TODO: Refactor so it is more of a guide than a challenge -->
+
+The goal of this guide is to connect an LDR to the Raspberry Pi GPIO's and reading its state in a loop. This results in a light dependent switch.
 
 ### Introduction
 
@@ -56,22 +57,6 @@ Connecting everything correctly should show a similar result to the image shown 
 
 ![BreadBoard connections of LDR](img/ldr_breadboard.png)
 
-### WiringPi Package
-
-WiringPi is a PIN based GPIO access library written in C for the BCM2835 used in the Raspberry Pi. It's released under the GNU LGPLv3 license and is usable from C, C++ and RTB (BASIC) as well as many other languages with suitable wrappers. It's designed to be familiar to people who have used the Arduino wiring system.
-
-WiringPi includes a command-line utility `gpio` which can be used to program and setup the GPIO pins. You can use this to read and write the pins and even use it to control them from shell scripts.
-
-We will be using the WiringPi Python package to control the GPIO pins.
-
-More information can be found at the GitHub page [https://github.com/WiringPi/WiringPi-Python](https://github.com/WiringPi/WiringPi-Python)
-
-You can install the package on your Raspberry Pi by executing the following command:
-
-```shell
-pip3 install wiringpi
-```
-
 ### Example program
 
 A small example program that read's the state of the GPIO pin is shown below:
@@ -94,11 +79,7 @@ print("Done")
 
 Save this program in a python file called for example `ldr.py`. Use `python3 ldr.py` as a command to execute the program.
 
-### Questions
-
-Can you explain why the state is high when the LDR is dark?
-
-### Challenges
+### Guide
 
 Try to alter the program to read the state of the LDR in a endless loop. Do make sure to add a delay between reading the state using the `sleep()` function of python.
 
