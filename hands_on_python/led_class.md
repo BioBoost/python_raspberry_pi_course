@@ -85,10 +85,10 @@ localPlayer.set_nickname("Humangus the Fungas")
 print("Nickname of the player is " + localPlayer.get_nickname())
 ```
 
-### A More User-friendly Interface to the LED class
+### Challenge - A More User-friendly Interface to the LED class
 
 Add a method `on()` and `off()` to the class. Call the `set_state` method with the correct state `True` or `False`.
 
 ![More User-friendly LED class](img/more_userfriendy_class.png)
 
-Call the methods from your main program to test them.
+Call the methods from your main program to test them. The solution to this can be found at the end of this chapter: [Solutions](../hands_on_python/solutions.md)

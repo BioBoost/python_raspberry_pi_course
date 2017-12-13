@@ -13,8 +13,8 @@
 
 ### Hands on Python
 
-* [Exercise 1](TODO.md)
-* [Exercise 2](TODO.md)
+* [Introduction](hands_on_python/readme.md)
+* [Prime Numbers](hands_on_python/prime_numbers.md)
 * [An LED class](hands_on_python/led_class.md)
 * [Solutions](hands_on_python/solutions.md)
 
