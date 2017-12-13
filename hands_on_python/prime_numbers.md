@@ -135,16 +135,7 @@ else:
   print(str(numberToCheck) + " is NOT a prime")
 ```
 
-The conditional code
-
-```python
-if numberToCheck > 1 and numberOfDivisors == 0:
-  return True
-else:
-  return False
-```
-
-can be replaced by the return statement as this code will only be reached if the number is a prime (in the other case the return statement in the while loop made the function return to the calling point.)
+The conditional code block at the end of the `is_prime()` method was replaced by the `return True` statement. This code will only be reached if the number is a prime (in the other case the return statement in the while loop made the function return to the calling point.)
 
 ### Challenge - Calculating primes
 
