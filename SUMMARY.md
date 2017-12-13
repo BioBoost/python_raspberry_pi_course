@@ -20,8 +20,7 @@
 
 ### The Raspberry Pi
 
-* [RPi OS](rpi_operating_system/readme.md)
-* [Linux Basics](linux_basics/readme.md)
+* [The Raspberry Pi](the_raspberry_pi/readme.md)
 
 ### Hands on Raspberry Hardware
 
