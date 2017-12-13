@@ -24,13 +24,13 @@ A diagram to identify both sides is shown below:
 
 [^1]: Source http://www.blocksignalling.co.uk/index.php/traffic-lights-module-common-anode-tlc2a
 
-If we were to connect the LED directly to the power supply it would draw infinite current and blow up. To limit the current we need to place a resistor in series with the LED (as shown in the schematic in the next section). For this a 1k resistor can be used.
+If we were to connect the LED directly to the power supply it would draw way to much current and blow up. To limit the current we need to place a resistor in series with the LED (as shown in the schematic in the next section). For this a 1k resistor can be used.
 
 ![A 1k resistor[^2]](img/1k_resistor.jpg)
 
 [^2]: Source https://www.pinterest.com/pin/794040978023017042/?autologin=true
 
-While a 1k resistor works to limit the current through the LED, it will not be ideal for the voltage and type of LEDs used here. In practice you should always take the voltage drop of the LED, the power supply and the preferred current (often 10mA) into account. There are various sites you can use for this like for example: [http://www.ohmslawcalculator.com/led-resistor-calculator](http://www.ohmslawcalculator.com/led-resistor-calculator).
+While a 1k resistor works to limit the current through the LED, it will not be ideal for the voltage and type of LEDs used here. In practice you should always take the voltage drop of the LED, the power supply and the preferred current (often 10mA or 20mA) into account. There are various sites you can use for this like for example: [http://www.ohmslawcalculator.com/led-resistor-calculator](http://www.ohmslawcalculator.com/led-resistor-calculator).
 
 ### Hardware Schematic and BreadBoard
 
@@ -49,30 +49,6 @@ Here we make use of **GPIO23** to connect the cathode of the LED.
 Connecting everything correctly should show a similar result to the image shown below.
 
 ![BreadBoard connections of LED](img/led_breadboard.png)
-
-### WiringPi Package
-
-WiringPi is a PIN based GPIO access library written in C for the BCM2835 used in the Raspberry Pi. It's released under the GNU LGPLv3 license and is usable from C, C++ and RTB (BASIC) as well as many other languages with suitable wrappers. It's designed to be familiar to people who have used the Arduino wiring system.
-
-WiringPi includes a command-line utility `gpio` which can be used to program and setup the GPIO pins. You can use this to read and write the pins and even use it to control them from shell scripts.
-
-We will be using the WiringPi Python package to control the GPIO pins.
-
-More information can be found at the GitHub page [https://github.com/WiringPi/WiringPi-Python](https://github.com/WiringPi/WiringPi-Python)
-
-You can install the package on your Raspberry Pi by executing the following command:
-
-```shell
-pip3 install wiringpi
-```
-
-#### WiringPi vs RPi.GPIO
-
-WiringPi is a C library while RPi.GPIO is native a Python module. Bindings have been provided for other languages like Python and Java. WiringPi has the advantage that it comes with a command line utility called `gpio` which can be run by a non-root user. This utility makes it possible to control GPIO pins from the command line. Read about it here: [http://wiringpi.com/the-gpio-utility/](http://wiringpi.com/the-gpio-utility/).
-
-WiringPi doesn't need to be run as root, but programs built with the RPi.GPIO module do need to be run as root.
-
-WiringPi also has a lot more features available such as SPI, I2C, Gert board support, ...
 
 ### Example program
 
@@ -99,13 +75,13 @@ wiringpi.digitalWrite(PIN_NUMBER, 1)   # Write 1 ( HIGH ) to LED pin
 print("Done")
 ```
 
-Save this program in a python file called for example `led_hw.py`. Use `python3 led_hw.py` as a command to execute the program.
+Save this program in a python file called for example `led_hw.py`. Execute it to verify that your hardware is working properly.
 
 ### Guide
 
 Let us extend the Led class from the previous hands on and add the hardware interaction to it.
 
-Below is the code to start from (this is the solution of the Led class pasted below the imports of the previous code example):
+Below is the code to start from (this is the solution of the Led class placed below the imports of the previous code example):
 
 ```python
 import wiringpi
@@ -167,7 +143,7 @@ class Led(object):
 # .....
 ```
 
-Last we should also set the pinmode of the GPIO inside the constructor. We place it here because it should only be set once for an Led and it should be set before we change the actual value of the GPIO. Do make sure to place it behind the initialization of the wiring Pi library (same as in the main program). The `PIN_NUMBER` does need to be changed by `self.pinNumber`, the attribute we initialized before.
+Last we should also set the pinmode of the GPIO inside the constructor. We place it here because it should only be set once for an Led and it should be set before we change the actual value of the GPIO. Do make sure to place it behind the initialization of the wiringPi library (same as in the main program). The `PIN_NUMBER` does need to be replaced by `self.pinNumber`, the attribute we initialized earlier.
 
 ```python
 # .....
@@ -180,9 +156,9 @@ class Led(object):
 # .....
 ```
 
-Summarized, the constructor of the Led class creates an attribute with the pin number of the GPIO we want to use for the Led. It initializes the wiring pi library and it sets the GPIO to an output. Last it also turns the Led off.
+Summarized, the constructor of the Led class creates an attribute with the pin number of the GPIO we want to use for the Led. It initializes the wiringPi library and it sets the GPIO as an output. Last it also turns the Led off.
 
-The last part of the Led class we need to modify is the `set_state` method to actually set the GPIO based on the value of the state.
+The last part of the Led class we need to modify is the `set_state` method to actually set the GPIO based on the value of the state. This can be achieved by calling the `digitalWrite()` method of wiringPi with `self.pinNumber` and `state` as arguments.
 
 ```python
 # .....

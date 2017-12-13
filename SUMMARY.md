@@ -27,6 +27,7 @@
 * [Introduction](hands_on_rpi_hardware/readme.md)
 * [LED](hands_on_rpi_hardware/led.md)
 * [LDR](hands_on_rpi_hardware/ldr.md)
+* [LED and LDR](hands_on_rpi_hardware/combination_led_ldr.md)
 * [Solutions](TODO.md)
 
 ### The TouchBerry Pi Shield

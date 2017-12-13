@@ -41,6 +41,33 @@ for i in range(0,10):
 print("Done")
 ```
 
-### Exercise 2
+### Using an LDR as a switch on the Raspberry Pi's GPIO Pins
 
-### Exercise 3
+Reading the LDR in an endless loop. Delay is necessary otherwise the loop would iterate way too fast for us to follow.
+
+```python
+import wiringpi
+from time import sleep
+
+class LDR(object):
+  def __init__(self):
+    self.pinNumber = 24
+    wiringpi.wiringPiSetupGpio()    # Use GPIO numbering
+    wiringpi.pinMode(self.pinNumber, 0)        # Set LDR pin to 0 ( INPUT )
+
+  def get_state(self):
+    return wiringpi.digitalRead(self.pinNumber)
+
+
+# Create an object of LDR
+switch = LDR()
+
+while True:
+  # Get the state of the LDR
+  print("State = " + str(switch.get_state()))
+  sleep(0.5)
+
+print("Done")
+```
+
+### Combining the LED and the LDR switch
