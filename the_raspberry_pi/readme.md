@@ -98,57 +98,10 @@ If you want your Pi to be connected to your local area network (LAN), you will h
 
 ## Interacting with the Raspberry Pi
 
-Booting the Raspberry Pi is really simple. All you have to do is fit in the SD card and plug in the supply adapter. It automatically boots from the SD card. Interacting with the Linux operating system from that point on can be a bit harder in certain situations.
-
-### Graphical Desktop Environment
-
-If you deployed an OS such as Raspbian than you can attach an HDMI display. You will also have to connect a USB keyboard to the Pi to be able to control the Pi. Depending on the edition (normal or lite), you will get a graphical desktop environment or a tty terminal.
-
-![Raspbian Graphical Desktop Environment](img/raspbian_gui.jpg)
-
-![Raspbian TTY Terminal](img/raspbian_tty.png)
-
-### SSH Connection
-
-Raspbian comes default with the SSH daemon disabled. It can be enabled via a startup file or via the `raspi-config` command (see later). SSH allows us to connect to the Pi from a remote computer using the SSH protocol. Before this can be done you will have to enable SSH and also determine the IP address of the Pi.
-
-> #### Note::SSH
->
-> SSH or Secure Shell is a secure way to connect to a device and execute commands from a distance. In the old days Telnet was the way to go but it sends all commands and login information as clear text. With SSH everything is encrypted. Default SSH daemon listen on port 22.
-
-Connecting to a device using the SSH protocol can be easily achieved using a terminal tool such as Putty. All you have to do is start Putty and select the SSH connection option and specify the IP address of the device as shown in Figure 6. Once the connection is configured you can open it.
-
-> #### Note::Putty
->
-> PuTTY is a free implementation of Telnet and SSH for Windows and Unix platforms, along with an xterm terminal emulator. It can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty](http://www.chiark.greenend.org.uk/~sgtatham/putty).
-
-![Opening an SSH connection using Putty](img/putty.png)
-
-You will be presented with the command line interface (CLI) of the Linux operating system running on your device. The first thing you will see is a login screen similar to the one shown below.
-
-![The login screen of the Raspbian distribution running on the Pi](img/cli_login.png)
-
-The default username and password can be found on the Raspberry Pi website. For Raspbian it is "pi" as username and "raspberry" as password. Once you login with these credentials you are presented with the command line interface as shown below. From this point on you can start to execute commands on the Pi.
-
-![The command line interface after logging in](img/cli_after_login.png)
-
-### RS232 Connection
-
-A last option that can be used to connect to the Raspberry Pi is using a serial connection. This is often used for debugging embedded systems because it is a very basic connection type. Because of this the kernel will also output its kernel messages (debugging information and errors) to this connection. Since most computers these days lack the serial interface we can use a simple RS232 to USB converter such as the PL-2303HX (see [https://www.adafruit.com/datasheets/PL2303HX.pdf](https://www.adafruit.com/datasheets/PL2303HX.pdf) for datasheet) or you can use a readily available breakout board such as the "AdaFruit PiUART" (see [https://www.adafruit.com/product/3589](https://www.adafruit.com/product/3589))
-
-![AdaFruit PiUART](img/pi_uart.png)
-
-Just as with SSH, you can use Putty for the serial terminal. Just select "serial" as connection type, "COMx" (where x is an integer number) as serial line and "115200" as speed. An example is shown in the figure below. Choose open and you will a get a command line interface similar to the one of SSH.
-
-![Serial line connection parameters](img/serial_to_usb_parameters.png)
-
-> #### Note::Determining the COM device
->
-> You can find the COM port number in the device manager. Select the "Ports (COM & LPT)" category and look for a "USB-to-Serial Comm Port (COMx)" device.
-
-If you reboot your Raspberry Pi at this moment you will see the kernel messages shown in the next figure mentioned earlier.
-
-![Kernel messages on serial interface](img/kernel_messages_serial_interface.png)
+Booting the Raspberry Pi is really simple. All you have to do is fit in the SD card and plug in the supply adapter. It automatically boots from the SD card. Interacting with the Linux operating system from that point on can be realized via:
+* **a graphical desktop environment** if you deployed an OS such as Raspbian and you attached an HDMI display. You will also have to connect a USB keyboard to the Pi to be able to control the Pi. Depending on the edition (normal or lite), you will get a graphical desktop environment or a tty terminal.
+* **an SSH connection**. SSH allows us to connect to the Pi from a remote computer using the SSH protocol. SSH or Secure Shell is a secure way to connect to a device and execute commands from a distance. In the old days Telnet was the way to go but it sends all commands and login information as clear text. With SSH everything is encrypted. Default SSH daemon listen on port 22.
+* **an RS232 serial connection**. A last option that can be used to connect to the Raspberry Pi is using a serial connection. This is often used for debugging embedded systems because it is a very basic connection type. As most computers these days lack the serial interface we can use a simple RS232 to USB converter such as the PL-2303HX (see [https://www.adafruit.com/datasheets/PL2303HX.pdf](https://www.adafruit.com/datasheets/PL2303HX.pdf) for a datasheet) or you can use a readily available breakout board such as the "AdaFruit PiUART" (see [https://www.adafruit.com/product/3589](https://www.adafruit.com/product/3589))
 
 ## Initial Configuration
 
@@ -164,7 +117,7 @@ sudo raspi-config
 
 ![Raspbian configuration tool](img/raspi_config.png)
 
-Generally speaking, `raspi-config` aims to provide the functionality to make the most common configuration changes. This may result in automated edits to  `/boot/config.txt` and various standard Linux configuration files. Some options require a reboot to take effect. If you changed any of those, `raspi-config` will ask if you wish to reboot now when you select the `<Finish>` button.
+Generally speaking, `raspi-config` aims to provide the functionality to make the most common configuration changes. This may result in automated edits to `/boot/config.txt` and various standard Linux configuration files. Some options require a reboot to take effect. If you changed any of those, `raspi-config` will ask if you wish to reboot now when you select the `<Finish>` button.
 
 The most important options are discussed in the sections below.
 
@@ -282,12 +235,9 @@ The Linux kernel **provides the core system facilities** required for any system
 
 Every Linux distribution is different in terms of how software is installed. Linux distributions use different installation file types, package managers, and commands for installation. Even within a single form of Linux, there are different types of package managers.
 
-Debian files are usually downloaded by package managers from a software repository. A repository is a collection of Debian files that typically comes from a server or other location. Package managers access these repositories and download the requested Debian file. Then, the package manager installs the package. A package manager is software used to handle the installation, removal, configuration, and updating of programs and drivers on a computer system. If a Debian file is not downloaded from a repository, then the user downloaded or created a Debian file. The local file can still be installed; Debian files are not required to come from a repository, although most do.
+Debian files are usually downloaded by package managers from a software repository. A repository is a collection of Debian files that typically comes from a server or other location. Package managers access these repositories and download the requested Debian file. Then, the package manager installs the package. A package manager is software used to handle the installation, removal, configuration, and updating of programs and drivers on a computer system.
 
-Packages generally contain all of the files necessary to implement a set of related commands or features. There are two types of Debian packages:
-
-* **Binary packages**, which contain executables, configuration files, man/info pages, copyright information, and other documentation. These packages are distributed in a Debian-specific archive format; they are usually distinguished by having a '.deb' file extension. Binary packages can be unpacked using the Debian utility dpkg (possibly via a frontend like aptitude).
-* **Source packages**, which consist of a .dsc file describing the source package (including the names of the following files), a .orig.tar.gz file that contains the original unmodified source in gzip-compressed tar format and usually a .diff.gz file that contains the Debian-specific changes to the original source. The utility dpkg-source packs and unpacks Debian source archives. (The program apt-get can be used as a frontend for dpkg-source.)
+Packages generally contain all of the files necessary to implement a set of related commands or features.
 
 Installation of software by the package system uses "dependencies" which are carefully designed by the package maintainers. These dependencies are documented in the control file associated with each package.
 
