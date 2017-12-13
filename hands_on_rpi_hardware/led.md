@@ -50,6 +50,10 @@ Connecting everything correctly should show a similar result to the image shown 
 
 ![BreadBoard connections of LED](img/led_breadboard.png)
 
+> #### Info::Fritzing
+>
+> The above image was created using a tool called Fritzing. Fritzing is an open-source hardware initiative that makes electronics accessible as a creative material for anyone. They offer a software tool, a community website and services in the spirit of Processing and Arduino, fostering a creative ecosystem that allows users to document their prototypes, share them with others, teach electronics in a classroom, and layout and manufacture professional PCBs.
+
 ### Example program
 
 A small example program that turns the LED on and back off after 1 second is shown below:

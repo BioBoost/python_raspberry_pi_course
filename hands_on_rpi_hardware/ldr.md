@@ -79,7 +79,7 @@ print("State = " + str(switch.get_state()))
 print("Done")
 ```
 
-Save this program in a python file called for example `ldr.py`. Execute it to verify that your hardware is working properly.
+Save this program in a python file called for example `ldr_hw.py`. Execute it to verify that your hardware is working properly.
 
 ### Challenge
 
@@ -94,3 +94,5 @@ from time import sleep
 
 sleep(1)      # Sleep (seconds)
 ```
+
+The full solution can be found in the solutions section.
