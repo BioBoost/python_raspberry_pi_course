@@ -16,15 +16,15 @@ The state of the LED is saved as an attribute of the object created of the LED c
 
 ![Basic LED class](img/basic_led_class.png)
 
-By adding both the state and methods inside a class, we encapsulate all things concerning a LED into separate class.
+By adding both the state and methods inside a class, we encapsulate all things concerning a LED into a single class.
 
-This allows us to create multiple LED objects.
+A class also allows us to reuse the code by enabling us to create multiple LED objects.
 
 ### Guide
 
-Start by creating a new python script called for example `led_class.py` and open is using a text editor.
+Start by creating a new python script called for example `led_class.py`.
 
-Create a class LED and add a method `set_state` to it that takes in a state as an argument. Assign the value of the argument to an attribute of the class called `state`.
+1. Create a class LED and add a method `set_state` to it that takes in a state as an argument. Assign the value of the argument to an attribute of the class called `state`.
 
 Below is an example of class `Player` that tracks a `nickname` attribute and has a setter method `set_nickname()` for it. Use it as an example to create your setter method for the LED class.
 
@@ -34,7 +34,7 @@ class Player(object):
     self.nickname = nickname
 ```
 
-Next add a constructor method to it called `__init__`. Set the state of the LED to `False` by calling the `set_state` method.
+2. Next add a constructor method to it called `__init__`. Set the state of the LED to `False` by calling the `set_state` method.
 
 Below is an example of the class `Player` with a constructor that makes use of the `set_nickname` method to set a default nickname. Use it as an example to create your constructor method for the LED class.
 
@@ -45,7 +45,7 @@ class Player(object):
     self.set_nickname("Guest")
 ```
 
-Add a getter method `get_state` so the value of that state can be accessed from the outside. Return the value of the `state` attribute.
+3. Add a getter method `get_state` so the value of that state can be accessed from the outside. Return the value of the `state` attribute.
 
 Below is an example of the class `Player` with a getter method that returns the value of the `username` attribute. Use it as an example to create your getter method for the LED class.
 
@@ -56,7 +56,7 @@ class Player(object):
     return self.nickname
 ```
 
-Create an object of the LED class at the bottom of your script.
+4. Create an object of the LED class at the bottom of your script.
 
 Creating objects of a class can be achieved by stating the name of the class followed by parentheses. To save your new object, you need to assign it to a variable as shown below for a `Player`.
 
@@ -64,7 +64,7 @@ Creating objects of a class can be achieved by stating the name of the class fol
 localPlayer = Player()
 ```
 
-Print the state of the LED once the object is created.
+5. Print the state of the LED once the object is created.
 
 Printing the nickname of the `Player` can be done by calling the getter method for the nickname and passing it to the print function:
 
@@ -74,7 +74,7 @@ localPlayer = Player()
 print("Nickname of the player is " + localPlayer.get_nickname())
 ```
 
-Change the state of the led by calling the `set_state` method and print out the new state.
+6. Change the state of the led by calling the `set_state` method and print out the new state.
 
 This is equivalent to changing the nickname of a Player:
 
