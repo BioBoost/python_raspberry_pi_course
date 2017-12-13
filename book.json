@@ -14,8 +14,5 @@
             "maxDepth": 3,
             "skipFirstH1": true
         }
-    },
-    "pdf": {
-      "paperSize": "a5"
     }
 }
