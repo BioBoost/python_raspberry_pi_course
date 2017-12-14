@@ -39,7 +39,7 @@
 * [Introduction](TODO.md)
 * [LEDs](hands_on_touchberry/leds.md)
 * [Touch](hands_on_touchberry/touch.md)
-* [Temperature](TODO.md)
+* [Temperature](hands_on_touchberry/temperature.md)
 * [Solutions](hands_on_touchberry/solutions.md)
 
 ### Internet of Things

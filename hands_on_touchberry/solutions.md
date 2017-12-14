@@ -77,3 +77,43 @@ while True:
 
     sleep(interval)
 ```
+
+### The TouchBerry Pi Temperature
+
+Show an alarm (for example all LEDs RED) when a certain threshold is reached. It is only resettable when the user pressed the `X` key.
+
+```python
+from time import sleep
+from touchberrypi import TouchberryPi
+from touchberrypi import Colors
+from touchberrypi import Led
+from touchberrypi import TouchKey
+
+alarmLevel = 34.0
+alarm = False
+
+shield = TouchberryPi()
+
+def on_key_down(key):
+    global alarm
+
+    if key == TouchKey.X:
+        alarm = False
+
+shield.on_key_down(on_key_down)
+shield.start_touch_listener(0.1)
+
+while True:
+  temp = shield.temperature()
+  print("Shield temperature: " + str(temp) + "°C")
+
+  if temp >= alarmLevel:
+    alarm = True
+
+  if alarm:
+    shield.set_all_leds(Colors.RED)
+  else:
+    shield.set_all_leds(Colors.BLACK)
+
+  sleep(2)
+```
