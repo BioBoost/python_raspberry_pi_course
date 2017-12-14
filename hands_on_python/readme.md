@@ -8,6 +8,10 @@ In the following tutorials we will get our hands dirty and dive into some Python
 
 On the Raspberry Pi stations provided for the workshop you can use the Geany editor (found under `Start => Programming => Geany`). By selecting `File => New` you can create a new python script. Make sure to save it with a `.py` extension before starting. This way Geany will know we are writing python code.
 
+One thing that needs to be done is to change the default python version to version 3. In Geany you can do this by changing the 'Build commands'. In the menu, go to `Build` and click on `Set build commands`. Change the `python` value to `python3` (just add a `3`) for the `Compile` and `Execute` actions like in the screenshot below.
+
+![Make python3 the default python version](img/geany-python3-default.jpg)
+
 If you wish you can start by creating a "Hello World" application using the code below.
 
 ```python
