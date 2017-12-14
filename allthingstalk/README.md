@@ -1,12 +1,14 @@
 # AllThingsTalk
 
-<!-- intro what is allthingstalk -->
+The AllThingsTalk Cloud is an IoT Application Enablement platform for prototyping and full scale product deployment.
+
+Connect your devices with web services, let them interact using when-then rules, and store as well as visualise data using mobile or web dashboards.
 
 ![AllThingsTalk website](img/allthingstalk-website.png)
 
 ## Maker
 
-<!-- intro what is allthingstalk maker -->
+AllThingsTalk Maker, the Cloud Instance for Prototyping is free to use for developers and innovators. You can discover the accessible functionality of the AllThingsTalk Cloud and experiment to learn how to put the Internet of Things to use in your line of business.
 
 ![Try AllThingsTalk 'Maker'](img/allthingstalk-maker.png)
 
@@ -249,6 +251,22 @@ for i in range(10):
     sleep(1)
 ```
 
+## AllThingsTalk on a mobile device
+
+AllThingsTalk also provides mobile applications for iOS and Android. Download and try it out for yourself. More information about the apps can be found on http://docs.allthingstalk.com/cloud/general/mobile/ 
+
 ## Exercise
+
+Now that we know how to push and pull information from the AllThingsTalk cloud, you could try to integrate this with the Touchberry Pi. Some examples could be:
+
+* Send the temperature to the AllThingsTalk dashboard. It can be displayed by showing the current value, or in a chart.
+* Create one or more actuators to enable the remote control for the different leds
+* Show the name of the button that is being pressed.
+
+Other but more difficult examples are:
+* Use a `Knob` control to change the brightness for one, some or all leds
+* Use a `Input` control to change the color of one, some or all leds
+* A temperature alarm that will display a warning when the temperature is to high or to low
+* Control the speed and color parameters from the cloud for the running light application
 
 <!-- TODO -->
