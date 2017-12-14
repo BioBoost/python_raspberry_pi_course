@@ -140,7 +140,7 @@ Click on the clipboard icons to copy the values for the device token and device 
 
 ### Creating custom Device class
 
-Now it is time to describe the device that we created earlier in the Maker using Python. The best way to describe a type is by creating a class. The class should have a name, in this case we could call it `TouchberryPi`. The class needs to inherit some behavior from the `Device` class that was provided by the AllThingsTalk library.
+Now it is time to describe the device that we created earlier in the Maker using Python. The best way to describe a type is by creating a class. The class should have a name, in this case we could call it `TPDevice` (short for TouchberryPiDevice). The class needs to inherit some behavior from the `Device` class that was provided by the AllThingsTalk library.
 
 Next we need to provide some attributes for our new class. These attributes *must correspond* with the names of the assets that we created for our device. In this case this is a `temperature` and `led` attribute. The attributes must be loaded with an asset object. Therefore we can use the `XAsset()` methods provided by the library. In our case this is the `NumberAsset()` and `BooleanAsset()`.
 
@@ -150,7 +150,7 @@ Earlier we mentioned that assets could be created from within Python as well. Th
 
 
 ```python
-class TouchberryPi(Device):
+class TPDevice(Device):
     temperature = NumberAsset(unit='°C')
     led = BooleanAsset(kind=talk.Asset.ACTUATOR)
     button = StringAsset()
@@ -178,7 +178,7 @@ Not only do we need a client to make connection to the cloud, we also need to te
 
 ```python
 client = Client(DEVICE_TOKEN)
-device = TouchberryPi(client=client, id=DEVICE_ID)
+device = TPDevice(client=client, id=DEVICE_ID)
 ```
 
 Now we have a `device` object that we can use to interact with (set properties and call methods). All these interactions will be translated to communication that is send back and forth to the cloud. Changes in the applications will reflect in the dashboard, and vice versa.
@@ -199,14 +199,14 @@ device.temperature = 12.34
 To receive changes from the cloud, we need to provide an *actionhandler*. An actionhandler is a method that will be called in case of an event. An event could be the receiving of a new state for an asset. For example if we want to receive an update for our led, we could write something like this:
 
 ```python
-@TouchberryPi.command.led
+@TPDevice.command.led
 def on_led_update(device, value, at):
     print('Update led state to: ' + value)
 ```
 
 Lets break this down a bit.
 
-The first line contains `@TouchberryPi.command.led` and is called a `decorator`.  This decorator will link the method defined on the next line to a `command`. The command is something that will be triggered upon receiving a new value from the cloud.
+The first line contains `@TPDevice.command.led` and is called a `decorator`.  This decorator will link the method defined on the next line to a `command`. The command is something that will be triggered upon receiving a new value from the cloud.
 
 The next line is the function declaration. We give the function a name (in this case `on_led_update`), and provide arguments that can be passed when the event calls this function. The event will automatically provide extra information about the event through these arguments. `device` will contain the device object that received a change. `value` will contain the new value that was send from the cloud. `at` will contain a timestamp of the exact moment that the event occurred.
 
@@ -228,15 +228,15 @@ from allthingstalk import *
 DEVICE_TOKEN = '<DEVICE_TOKEN>'
 DEVICE_ID = '<DEVICE_ID>'
 
-class TouchberryPi(Device):
+class TPDevice(Device):
     temperature = NumberAsset(unit='°C')
     led = BooleanAsset(kind=Asset.ACTUATOR)
     button = StringAsset()
 
 client = Client(DEVICE_TOKEN)
-device = TouchberryPi(client=client, id=DEVICE_ID)
+device = TPDevice(client=client, id=DEVICE_ID)
 
-@TouchberryPi.command.led
+@TPDevice.command.led
 def on_led_update(device, value, at):
     print("Update led state to: %s" % value)
 
