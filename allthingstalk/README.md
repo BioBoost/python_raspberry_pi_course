@@ -38,14 +38,14 @@ Now we have created a device in the AllThingsTalk Maker dashboard.
 
 ### Assets
 
-A single device can contain multiple sensors and actuators. AllThingsTalk calls these sensors and actuators `Assets`. AllThingsTalk differentieates the following asset *kinds*:
+A single device can contain multiple sensors and actuators. AllThingsTalk calls these sensors and actuators `Assets`. AllThingsTalk differentiates the following asset *kinds*:
 
-* **Sensor**: Send information that is send from the device to the cloud. 
+* **Sensor**: Send information that is send from the device to the cloud.
 * **Acutator**: Used by the device to receive information from the cloud.
 * **Virtual**: Have no link with a physical device. They hold a higher-value knowledge, mostly calculated from other assets.
 * **Config**: A static value that can be used as setting or in calculations (multipliers, limits, thresholds,...) This kind is not directly available when creating a new asset.
 
-Assets also have a type property. Assets can be of the followin types:
+Assets also have a type property. Assets can be of the following types:
 
 * Number
 * Integer
@@ -55,7 +55,7 @@ Assets also have a type property. Assets can be of the followin types:
 
 #### Manually adding assets
 
-Assets can be created in the AllThingsTalk Maker by clicking on the `Create asset` button. 
+Assets can be created in the AllThingsTalk Maker by clicking on the `Create asset` button.
 
 ![Configuring device Assets](img/create-asset.png)
 
@@ -69,7 +69,7 @@ Another example is an actuator that we could use to toggle a led from within the
 
 The assets overview page should now show both assets that we have created for the `python-raspberry-py-course` device.
 
-![Overview of the current assets](img/assets-overview.png) 
+![Overview of the current assets](img/assets-overview.png)
 
 #### Adding assets in Python
 
@@ -77,12 +77,12 @@ It is also possible to define and add assets using the Python library. This feat
 
 ### Pinboards
 
-The created assets for the device are not realy visually appealing. AllThingsTalk solves this by providing highly configurable `Pinboards`. While we are on the asset overview page the easiest way to add the assets to a pinboard is by clicking on the &#x22ee; icon on the right of the corresponding asset. From the dropdown menu click on `Pin to board` and then select the pinboard. The default pinboard is called `Dashboard`. Repeat this for the other asset as well.
+The created assets for the device are not really visually appealing. AllThingsTalk solves this by providing highly configurable `Pinboards`. While we are on the asset overview page the easiest way to add the assets to a pinboard is by clicking on the &#x22ee; icon on the right of the corresponding asset. From the dropdown menu click on `Pin to board` and then select the pinboard. The default pinboard is called `Dashboard`. Repeat this for the other asset as well.
 
 ![Pinning assets to a pinboard](img/pin-to-board.png)
 
 Now that all the assets are pinned to the `Dashboard`, lets take a look on how AllThingsTalk will represent the assets. Click on the
-&#9776; icon to display the menu, and then click on `Pinboards`. This wil show the `Dashboard` pinboard where we just added some assets.
+&#9776; icon to display the menu, and then click on `Pinboards`. This will show the `Dashboard` pinboard where we just added some assets.
 
 ![Menu](img/menu.png)
 
@@ -100,9 +100,9 @@ The full documentation can be found at https://allthingstalk.github.io/python-sd
 
 ### Installing allthingstalk library
 
-First lets install the libary. For this we will use the `pip3` package manager of Python. This will install all necesairy components and code for the AllThingsTalk library.
+First lets install the library. For this we will use the `pip3` package manager of Python. This will install all necessary components and code for the AllThingsTalk library.
 
-Open up a commandline terminal and type in the following command:
+Open up a command line terminal and type in the following command:
 
 ```
 pip3 install allthingstalk
@@ -140,13 +140,13 @@ Click on the clipboard icons to copy the values for the device token and device 
 
 ### Creating custom Device class
 
-Now it is time to describe the device that we created earlier in the Maker using Python. The best way to describe a type is by creating a class. The class should have a name, in this case we could call it `TouchberryPi`. The class needs to inherit some behaviour from the `Device` class that was provided by the AllThingsTalk library.
+Now it is time to describe the device that we created earlier in the Maker using Python. The best way to describe a type is by creating a class. The class should have a name, in this case we could call it `TouchberryPi`. The class needs to inherit some behavior from the `Device` class that was provided by the AllThingsTalk library.
 
-Next we need to provide some attributes for our new class. These attributes *must correspond* with the names of the assets that we created for our device. In this case this is a `temperature` and `led` attribute. The attributes must be loaded with an asset object. Therefore we can use the `XAsset()` methods provided by the libary. In our case this is the `NumberAsset()` and `BooleanAsset()`.
+Next we need to provide some attributes for our new class. These attributes *must correspond* with the names of the assets that we created for our device. In this case this is a `temperature` and `led` attribute. The attributes must be loaded with an asset object. Therefore we can use the `XAsset()` methods provided by the library. In our case this is the `NumberAsset()` and `BooleanAsset()`.
 
 By default an asset will be set as `sensor`. If need to change the `kind` of the asset to `actuator`, you can provide the information as an argument of the `XAsset()` method.
 
-Earlier we mentioned that assets could be created from withing Python as well. This is just as easy as providing an extra attribute to the device class. For example lets add a `button` attribute of the `StringAsset()` type. This could be used to communicate a pressed button to the cloud by providing its name as a `String` value (text).
+Earlier we mentioned that assets could be created from within Python as well. This is just as easy as providing an extra attribute to the device class. For example lets add a `button` attribute of the `StringAsset()` type. This could be used to communicate a pressed button to the cloud by providing its name as a `String` value (text).
 
 
 ```python
@@ -156,7 +156,7 @@ class TouchberryPi(Device):
     button = StringAsset()
 ```
 
-#### Asset types 
+#### Asset types
 
 The supported asset types in the Python library are
 
@@ -172,7 +172,7 @@ More information can be found in the API documentation: https://allthingstalk.gi
 
 ### Connecting to AllThingsTalk
 
-Now that we have description of how our device is composed, we are ready to create a connection to the AllThingsTalk cloud. Therefore we need to create a `client` object. This client object is reponsible for sending and receiving information between our program (The Pi) and the cloud. The `DEVICE_TOKEN` is needed to authenticate our application to the cloud.
+Now that we have description of how our device is composed, we are ready to create a connection to the AllThingsTalk cloud. Therefore we need to create a `client` object. This client object is responsible for sending and receiving information between our program (The Pi) and the cloud. The `DEVICE_TOKEN` is needed to authenticate our application to the cloud.
 
 Not only do we need a client to make connection to the cloud, we also need to tell which device we want to communicate with. Therefore we need to create an instance of the class we created earlier. The class needs the `client` object and the `DEVICE_ID` to identify itself to the cloud.
 
@@ -181,14 +181,14 @@ client = Client(DEVICE_TOKEN)
 device = TouchberryPi(client=client, id=DEVICE_ID)
 ```
 
-Now we have a `device` object that we can use to interact with (set properties and call methods). All these interactions will be translated to communication that is send back and forth to the cloud. Changes in the applications will reflect in the dashboard, and vica versa.
+Now we have a `device` object that we can use to interact with (set properties and call methods). All these interactions will be translated to communication that is send back and forth to the cloud. Changes in the applications will reflect in the dashboard, and vice versa.
 
 ### Sending changes to the cloud
 
 Asset values will be send to AllThingsTalk automatically. Check your asset values for the device or check your Pinboard for updates.
-Lets send a hard-coded temperature value to the dashboard by simply asigning a new value to the temperature attribute of the device object.
+Lets send a hard-coded temperature value to the dashboard by simply assigning a new value to the temperature attribute of the device object.
 
-When executing the code, make sure to check the dashboard as wel, the value will be updated in real-time.
+When executing the code, make sure to check the dashboard as well, the value will be updated in real-time.
 
 ```python
 device.temperature = 12.34
@@ -206,9 +206,9 @@ def on_led_update(device, value, at):
 
 Lets break this down a bit.
 
-The first line contains `@TouchberryPi.command.led` and is called a `decorator`.  This decorator will link the method defined on the next line to a `command`. The command is something that will be triggerd upon receiving a new value from the cloud.
+The first line contains `@TouchberryPi.command.led` and is called a `decorator`.  This decorator will link the method defined on the next line to a `command`. The command is something that will be triggered upon receiving a new value from the cloud.
 
-The next line is the function declaration. We give the function a name (in this case `on_led_update`), and provide arguments that can be passed when the event calls this function. The event will automatically provide extra information about the event through these arguments. `device` will contain the device object that received a change. `value` will contain the new value that was send from the cloud. `at` will contain a timestamp of the exact moment that the event ocurred.
+The next line is the function declaration. We give the function a name (in this case `on_led_update`), and provide arguments that can be passed when the event calls this function. The event will automatically provide extra information about the event through these arguments. `device` will contain the device object that received a change. `value` will contain the new value that was send from the cloud. `at` will contain a timestamp of the exact moment that the event occurred.
 
 In the function definition we can execute code and make use of the provided arguments. In this example we will print out the newly receive `value`. The `device` and `at` are ignored in this example.
 
