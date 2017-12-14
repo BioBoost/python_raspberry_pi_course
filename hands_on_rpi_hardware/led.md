@@ -198,6 +198,8 @@ print("Done")
 
 Our main application is a lot cleaner and more readable now.
 
+### Challenge
+
 Now try for yourself to alter the main program to let the LED flash a number of times using a loop.
 
 The full solution can be found in the solutions section.

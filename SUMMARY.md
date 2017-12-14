@@ -38,7 +38,7 @@
 
 * [Introduction](TODO.md)
 * [LEDs](hands_on_touchberry/leds.md)
-* [Touch](TODO.md)
+* [Touch](hands_on_touchberry/touch.md)
 * [Temperature](TODO.md)
 * [Solutions](hands_on_touchberry/solutions.md)
 
