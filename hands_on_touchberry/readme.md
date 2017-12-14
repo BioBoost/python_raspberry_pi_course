@@ -1,8 +1,9 @@
 # Hands on TouchBerry
 
-The following hands on guides are available:
-* [LEDs](hands_on_touchberry/leds.md)
-* [Touch](TODO.md)
-* [Temperature](TODO.md)
+The following tutorials will guide you through the available peripherals of the Touchberry Pi shield. Each guide consists of a  Python guide to interact with the hardware. At the end some challenges are presented to encourage you to build upon the current setup.
 
-The solutions to the hands on can be found at [Solutions](hands_on_touchberry/solutions.md)
+The following hands on guides are available:
+* [LEDs](../hands_on_touchberry/leds.md)
+* [Touch](../hands_on_touchberry/touch.md)
+* [Temperature](../hands_on_touchberry/temperature.md)
+* [Solutions](../hands_on_python/solutions.md)

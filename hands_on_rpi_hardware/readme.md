@@ -6,6 +6,7 @@ The following hands on guides are available:
 * [Turning on an LED with your Raspberry Pi's GPIO Pins](../hands_on_rpi_hardware/led.md)
 * [Using an LDR as a switch on the Raspberry Pi's GPIO Pins](../hands_on_rpi_hardware/ldr.md)
 * [Combining the LED and the LDR switch](../hands_on_rpi_hardware/combination_led_ldr.md)
+* [Solutions](../hands_on_rpi_hardware/solution.md)
 
 Each of these will make use of the WiringPi package.
 

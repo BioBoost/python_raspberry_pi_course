@@ -82,4 +82,12 @@ sleep(2)
 shield.set_led(Led.LED2, Colors.RED)
 ```
 
-Alter the code above and give every LED another color.
+### Challenge
+
+Alter the code above and give every LED another / random color. You can also set a certain led by giving an integer as index (from 0 to 4). For example:
+
+```python
+shield.set_led(0, Colors.RED)
+```
+
+The full solution can be found in the solutions section.

@@ -28,7 +28,7 @@
 * [LED](hands_on_rpi_hardware/led.md)
 * [LDR](hands_on_rpi_hardware/ldr.md)
 * [LED and LDR](hands_on_rpi_hardware/combination_led_ldr.md)
-* [Solutions](TODO.md)
+* [Solutions](hands_on_rpi_hardware/solutions.md)
 
 ### The TouchBerry Pi Shield
 
@@ -36,10 +36,10 @@
 
 ### Hands on TouchBerry
 
-* [Introduction](TODO.md)
+* [Introduction](hands_on_touchberry/readme.md)
 * [LEDs](hands_on_touchberry/leds.md)
-* [Touch](TODO.md)
-* [Temperature](TODO.md)
+* [Touch](hands_on_touchberry/touch.md)
+* [Temperature](hands_on_touchberry/temperature.md)
 * [Solutions](hands_on_touchberry/solutions.md)
 
 ### Internet of Things
