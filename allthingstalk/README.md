@@ -269,4 +269,3 @@ Other but more difficult examples are:
 * A temperature alarm that will display a warning when the temperature is to high or to low
 * Control the speed and color parameters from the cloud for the running light application
 
-<!-- TODO -->

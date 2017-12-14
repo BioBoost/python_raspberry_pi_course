@@ -44,17 +44,16 @@
 
 ### Internet of Things
 
-* [Introduction](TODO.md)
-* [All Things Talk](allthingstalk/README.md)
-* [MQTT](TODO.md)
-* [LoRaWAN](TODO.md)
+* [Introduction](allthingstalk/README.md)
+* [All Things Talk](allthingstalk/README.md#)
+* [Devices](allthingstalk/README.md#devices)
+* [Assets](allthingstalk/README.md#assets)
 
-### Hands on IoT
+### Hands on Internet of Things
 
-* [LDR and All Things Talk](TODO.md)
-* [Publish your Temperature via MQTT](TODO.md)
-* [Touch VU meter](TODO.md)
-* [Solutions](TODO.md)
+* [Python Library](allthingstalk/README.md#python-library)
+* [Solution](allthingstalk/README.md#example)
+* [Exercise](allthingstalk/README.md#exercise)
 
 ---
 
