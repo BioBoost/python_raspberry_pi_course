@@ -36,7 +36,7 @@
 
 ### Hands on TouchBerry
 
-* [Introduction](TODO.md)
+* [Introduction](hands_on_touchberry/readme.md)
 * [LEDs](hands_on_touchberry/leds.md)
 * [Touch](hands_on_touchberry/touch.md)
 * [Temperature](hands_on_touchberry/temperature.md)
