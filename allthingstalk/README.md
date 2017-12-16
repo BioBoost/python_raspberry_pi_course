@@ -10,7 +10,7 @@ Connect your devices with web services, let them interact using when-then rules,
 
 AllThingsTalk Maker, the Cloud Instance for Prototyping is free to use for developers and innovators. You can discover the accessible functionality of the AllThingsTalk Cloud and experiment to learn how to put the Internet of Things to use in your line of business.
 
-![Try AllThingsTalk 'Maker'](img/allthingstalk-maker.png)
+![Try AllThingsTalk &apos;Maker&apos;](img/allthingstalk-maker.png)
 
 ### Create account
 
@@ -40,12 +40,12 @@ Now we have created a device in the AllThingsTalk Maker dashboard.
 
 ### Assets
 
-A single device can contain multiple sensors and actuators. AllThingsTalk calls these sensors and actuators `Assets`. AllThingsTalk differentiates the following asset *kinds*:
+A single device can contain multiple sensors and actuators. AllThingsTalk calls these sensors and actuators `Assets`. AllThingsTalk differentiates the following asset _kinds_:
 
 * **Sensor**: Send information that is send from the device to the cloud.
 * **Acutator**: Used by the device to receive information from the cloud.
 * **Virtual**: Have no link with a physical device. They hold a higher-value knowledge, mostly calculated from other assets.
-* **Config**: A static value that can be used as setting or in calculations (multipliers, limits, thresholds,...) This kind is not directly available when creating a new asset.
+* **Config**: A static value that can be used as setting or in calculations \(multipliers, limits, thresholds,...\) This kind is not directly available when creating a new asset.
 
 Assets also have a type property. Assets can be of the following types:
 
@@ -61,7 +61,7 @@ Assets can be created in the AllThingsTalk Maker by clicking on the `Create asse
 
 ![Configuring device Assets](img/create-asset.png)
 
-A form will show up with some questions about the new asset. The asset *kind*, *name* and profile *type* can be configured. Lets create a temperature asset by using the following settings.
+A form will show up with some questions about the new asset. The asset _kind_, _name_ and profile _type_ can be configured. Lets create a temperature asset by using the following settings.
 
 ![Creating a temperature sensor asset](img/temperature-asset.png)
 
@@ -79,12 +79,12 @@ It is also possible to define and add assets using the Python library. This feat
 
 ### Pinboards
 
-The created assets for the device are not really visually appealing. AllThingsTalk solves this by providing highly configurable `Pinboards`. While we are on the asset overview page the easiest way to add the assets to a pinboard is by clicking on the &#x22ee; icon on the right of the corresponding asset. From the dropdown menu click on `Pin to board` and then select the pinboard. The default pinboard is called `Dashboard`. Repeat this for the other asset as well.
+The created assets for the device are not really visually appealing. AllThingsTalk solves this by providing highly configurable `Pinboards`. While we are on the asset overview page the easiest way to add the assets to a pinboard is by clicking on the ⋮ icon on the right of the corresponding asset. From the dropdown menu click on `Pin to board` and then select the pinboard. The default pinboard is called `Dashboard`. Repeat this for the other asset as well.
 
 ![Pinning assets to a pinboard](img/pin-to-board.png)
 
-Now that all the assets are pinned to the `Dashboard`, lets take a look on how AllThingsTalk will represent the assets. Click on the
-&#9776; icon to display the menu, and then click on `Pinboards`. This will show the `Dashboard` pinboard where we just added some assets.
+Now that all the assets are pinned to the `Dashboard`, lets take a look on how AllThingsTalk will represent the assets. Click on the  
+☰ icon to display the menu, and then click on `Pinboards`. This will show the `Dashboard` pinboard where we just added some assets.
 
 ![Menu](img/menu.png)
 
@@ -92,13 +92,13 @@ On the `Dashboard` pinboard we can see the two assets that we created and added 
 
 ![Dashboard pinboard](img/pinboard.png)
 
- At this time there is no connection or communication with a real device such as our Raspberry Pi. The connection can be made with the use of many programming languages. In the next chapter we will checkout on how to create a connection between our Raspberry Pi and the Dashboard by using the Python library provided by AllThingsTalk.
+At this time there is no connection or communication with a real device such as our Raspberry Pi. The connection can be made with the use of many programming languages. In the next chapter we will checkout on how to create a connection between our Raspberry Pi and the Dashboard by using the Python library provided by AllThingsTalk.
 
 ## Python Library
 
-AllThingsTalk provides many libraries or SDK's (Software Development Kits) for different platforms and programming languages. More information can be found on http://docs.allthingstalk.com/developers/ But for now lets take a look at the Python library.
+AllThingsTalk provides many libraries or SDK's \(Software Development Kits\) for different platforms and programming languages. More information can be found on [http://docs.allthingstalk.com/developers/](http://docs.allthingstalk.com/developers/) But for now lets take a look at the Python library.
 
-The full documentation can be found at https://allthingstalk.github.io/python-sdk/ and the source code is openly available at https://github.com/allthingstalk/python-sdk
+The full documentation can be found at [https://allthingstalk.github.io/python-sdk/](https://allthingstalk.github.io/python-sdk/) and the source code is openly available at [https://github.com/allthingstalk/python-sdk](https://github.com/allthingstalk/python-sdk)
 
 ### Installing allthingstalk library
 
@@ -110,7 +110,7 @@ Open up a command line terminal and type in the following command:
 pip3 install allthingstalk
 ```
 
-Now that we have `allthingstalk` library available on the system, lets use it with Python.
+Now that we have `allthingstalk` library available on the system, lets use it with Python.  
 Create a new Python script.
 
 ### Importing libraries
@@ -142,14 +142,13 @@ Click on the clipboard icons to copy the values for the device token and device 
 
 ### Creating custom Device class
 
-Now it is time to describe the device that we created earlier in the Maker using Python. The best way to describe a type is by creating a class. The class should have a name, in this case we could call it `TPDevice` (short for TouchberryPiDevice). The class needs to inherit some behavior from the `Device` class that was provided by the AllThingsTalk library.
+Now it is time to describe the device that we created earlier in the Maker using Python. The best way to describe a type is by creating a class. The class should have a name, in this case we could call it `TPDevice` \(short for TouchberryPiDevice\). The class needs to inherit some behavior from the `Device` class that was provided by the AllThingsTalk library.
 
-Next we need to provide some attributes for our new class. These attributes *must correspond* with the names of the assets that we created for our device. In this case this is a `temperature` and `led` attribute. The attributes must be loaded with an asset object. Therefore we can use the `XAsset()` methods provided by the library. In our case this is the `NumberAsset()` and `BooleanAsset()`.
+Next we need to provide some attributes for our new class. These attributes _must correspond_ with the names of the assets that we created for our device. In this case this is a `temperature` and `led` attribute. The attributes must be loaded with an asset object. Therefore we can use the `XAsset()` methods provided by the library. In our case this is the `NumberAsset()` and `BooleanAsset()`.
 
 By default an asset will be set as `sensor`. If need to change the `kind` of the asset to `actuator`, you can provide the information as an argument of the `XAsset()` method.
 
-Earlier we mentioned that assets could be created from within Python as well. This is just as easy as providing an extra attribute to the device class. For example lets add a `button` attribute of the `StringAsset()` type. This could be used to communicate a pressed button to the cloud by providing its name as a `String` value (text).
-
+Earlier we mentioned that assets could be created from within Python as well. This is just as easy as providing an extra attribute to the device class. For example lets add a `button` attribute of the `StringAsset()` type. This could be used to communicate a pressed button to the cloud by providing its name as a `String` value \(text\).
 
 ```python
 class TPDevice(Device):
@@ -170,11 +169,11 @@ BooleanAsset()
 GeoAsset()
 ```
 
-More information can be found in the API documentation: https://allthingstalk.github.io/python-sdk/api.html#assets
+More information can be found in the API documentation: [https://allthingstalk.github.io/python-sdk/api.html\#assets](https://allthingstalk.github.io/python-sdk/api.html#assets)
 
 ### Connecting to AllThingsTalk
 
-Now that we have description of how our device is composed, we are ready to create a connection to the AllThingsTalk cloud. Therefore we need to create a `client` object. This client object is responsible for sending and receiving information between our program (The Pi) and the cloud. The `DEVICE_TOKEN` is needed to authenticate our application to the cloud.
+Now that we have description of how our device is composed, we are ready to create a connection to the AllThingsTalk cloud. Therefore we need to create a `client` object. This client object is responsible for sending and receiving information between our program \(The Pi\) and the cloud. The `DEVICE_TOKEN` is needed to authenticate our application to the cloud.
 
 Not only do we need a client to make connection to the cloud, we also need to tell which device we want to communicate with. Therefore we need to create an instance of the class we created earlier. The class needs the `client` object and the `DEVICE_ID` to identify itself to the cloud.
 
@@ -183,11 +182,11 @@ client = Client(DEVICE_TOKEN)
 device = TPDevice(client=client, id=DEVICE_ID)
 ```
 
-Now we have a `device` object that we can use to interact with (set properties and call methods). All these interactions will be translated to communication that is send back and forth to the cloud. Changes in the applications will reflect in the dashboard, and vice versa.
+Now we have a `device` object that we can use to interact with \(set properties and call methods\). All these interactions will be translated to communication that is send back and forth to the cloud. Changes in the applications will reflect in the dashboard, and vice versa.
 
 ### Sending changes to the cloud
 
-Asset values will be send to AllThingsTalk automatically. Check your asset values for the device or check your Pinboard for updates.
+Asset values will be send to AllThingsTalk automatically. Check your asset values for the device or check your Pinboard for updates.  
 Lets send a hard-coded temperature value to the dashboard by simply assigning a new value to the temperature attribute of the device object.
 
 When executing the code, make sure to check the dashboard as well, the value will be updated in real-time.
@@ -198,7 +197,7 @@ device.temperature = 12.34
 
 ### Receiving changes from the cloud
 
-To receive changes from the cloud, we need to provide an *actionhandler*. An actionhandler is a method that will be called in case of an event. An event could be the receiving of a new state for an asset. For example if we want to receive an update for our led, we could write something like this:
+To receive changes from the cloud, we need to provide an _actionhandler_. An actionhandler is a method that will be called in case of an event. An event could be the receiving of a new state for an asset. For example if we want to receive an update for our led, we could write something like this:
 
 ```python
 @TPDevice.command.led
@@ -210,7 +209,7 @@ Lets break this down a bit.
 
 The first line contains `@TPDevice.command.led` and is called a `decorator`.  This decorator will link the method defined on the next line to a `command`. The command is something that will be triggered upon receiving a new value from the cloud.
 
-The next line is the function declaration. We give the function a name (in this case `on_led_update`), and provide arguments that can be passed when the event calls this function. The event will automatically provide extra information about the event through these arguments. `device` will contain the device object that received a change. `value` will contain the new value that was send from the cloud. `at` will contain a timestamp of the exact moment that the event occurred.
+The next line is the function declaration. We give the function a name \(in this case `on_led_update`\), and provide arguments that can be passed when the event calls this function. The event will automatically provide extra information about the event through these arguments. `device` will contain the device object that received a change. `value` will contain the new value that was send from the cloud. `at` will contain a timestamp of the exact moment that the event occurred.
 
 In the function definition we can execute code and make use of the provided arguments. In this example we will print out the newly receive `value`. The `device` and `at` are ignored in this example.
 
@@ -222,8 +221,8 @@ When putting this all together, we get a program that looks like this.
 #!/usr/bin/env python3
 
 from time import sleep
-
 from allthingstalk import *
+import random
 
 # Parameters used to authorize and identify your device
 # Get them on maker.allthingstalk.com
@@ -253,7 +252,7 @@ for i in range(10):
 
 ## AllThingsTalk on a mobile device
 
-AllThingsTalk also provides mobile applications for iOS and Android. Download and try it out for yourself. More information about the apps can be found on http://docs.allthingstalk.com/cloud/general/mobile/ 
+AllThingsTalk also provides mobile applications for iOS and Android. Download and try it out for yourself. More information about the apps can be found on [http://docs.allthingstalk.com/cloud/general/mobile/](http://docs.allthingstalk.com/cloud/general/mobile/)
 
 ## Exercise
 
@@ -264,8 +263,11 @@ Now that we know how to push and pull information from the AllThingsTalk cloud, 
 * Show the name of the button that is being pressed.
 
 Other but more difficult examples are:
+
 * Use a `Knob` control to change the brightness for one, some or all leds
 * Use a `Input` control to change the color of one, some or all leds
 * A temperature alarm that will display a warning when the temperature is to high or to low
 * Control the speed and color parameters from the cloud for the running light application
+
+
 
