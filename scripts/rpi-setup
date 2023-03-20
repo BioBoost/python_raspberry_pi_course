@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# Call me with: 
+#    curl -sL https://bit.ly/devbit-python | bash -s --
+
+echo "######                                                   ";
+echo "#     # #   # ##### #    #  ####  #    #                 ";
+echo "#     #  # #    #   #    # #    # ##   #                 ";
+echo "######    #     #   ###### #    # # #  #                 ";
+echo "#         #     #   #    # #    # #  # #                 ";
+echo "#         #     #   #    # #    # #   ##                 ";
+echo "#         #     #   #    #  ####  #    #                 ";
+echo "                                                         ";
+echo "#     #                                                  ";
+echo "#  #  #  ####  #####  #    #  ####  #    #  ####  #####  ";
+echo "#  #  # #    # #    # #   #  #      #    # #    # #    # ";
+echo "#  #  # #    # #    # ####    ####  ###### #    # #    # ";
+echo "#  #  # #    # #####  #  #        # #    # #    # #####  ";
+echo "#  #  # #    # #   #  #   #  #    # #    # #    # #      ";
+echo " ## ##   ####  #    # #    #  ####  #    #  ####  #      ";
+echo "";                                         
+echo "Setting up Raspberry Pi for the Python workshop"
+echo "Sit back, this is going to take a while ..."
+
+echo "-------------------------------------------"
+echo "Should not be run as root"
+echo "-------------------------------------------"
+
+if [ $(id --u) == "0" ]; then
+  echo "Please don't run this script as root"
+  exit -1
+fi
+
+echo "-------------------------------------------"
+echo "Updating the system"
+echo "-------------------------------------------"
+sudo apt update
+sudo apt upgrade -y
+
+echo "-------------------------------------------"
+echo "Installing some general dependencies"
+echo "-------------------------------------------"
+sudo apt install -y git xxd
+
+echo "-------------------------------------------"
+echo "Installing tensorflow"
+echo "-------------------------------------------"
+## Source: https://qengineering.eu/install-tensorflow-on-raspberry-64-os.html
+### Ok never mind. Just installed latest tensorflow
+
+sudo apt -y install python3-pip
+
+echo "-------------------------------------------"
+echo "Installing Jupyter Notebook"
+echo "-------------------------------------------"
+
+sudo apt install -y libffi-dev
+sudo -H pip3 install --upgrade ipykernel
+sudo -H pip3 install jupyter
+sudo -H pip3 install pygments==2.4.1
+
+if [ ! -f "$HOME/.jupyter/jupyter_notebook_config.py" ]; then
+  jupyter-notebook --generate-config
+  grep -qxF 'c.NotebookApp.open_browser = False' $HOME/.jupyter/jupyter_notebook_config.py || echo "c.NotebookApp.open_browser = False" >>  $HOME/.jupyter/jupyter_notebook_config.py
+fi
+
+# Setup Desktop shortcut
+if [ ! -f "$HOME/Desktop/Jupyter" ]; then
+  cat > $HOME/Desktop/Jupyter <<EOF
+[Desktop Entry]
+Comment=Jupyter Notebook
+Terminal=false
+Name=JupyterNotebook
+Exec=jupyter-notebook --no-browser
+Type=Application
+Terminal=true
+Icon=/usr/share/icons/Adwaita/512x512/apps/utilities-terminal.png
+EOF
+fi
+
+echo "-------------------------------------------"
+echo "Disable DPMS and screen blanking"
+echo "-------------------------------------------"
+
+# Manual:
+# > sudo nano /etc/lightdm/lightdm.conf
+# > xserver-command=X -s 0 -p 0 -dpms
+
+# Or using sed:
+sudo sed -i 's/#xserver-command=X/xserver-command=X -s 0 -p 0 -dpms/g' /etc/lightdm/lightdm.conf
+
+echo "-------------------------------------------"
+echo "Done ... Best to reboot after running the script ..."
+echo "-------------------------------------------"
