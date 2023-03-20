@@ -57,7 +57,7 @@ Connecting everything correctly should show a similar result to the image shown 
 
 A small example program that read's the state of the GPIO pin is shown below. Notice how again a class was made of the LDR.
 
-```Python
+```python
 import wiringpi
 
 class LDR(object):

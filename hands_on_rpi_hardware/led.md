@@ -58,7 +58,7 @@ Connecting everything correctly should show a similar result to the image shown 
 
 A small example program that turns the LED on and back off after 1 second is shown below:
 
-```Python
+```python
 import wiringpi
 from time import sleep
 
