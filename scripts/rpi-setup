@@ -43,16 +43,9 @@ echo "-------------------------------------------"
 sudo apt install -y git xxd
 
 echo "-------------------------------------------"
-echo "Installing tensorflow"
-echo "-------------------------------------------"
-## Source: https://qengineering.eu/install-tensorflow-on-raspberry-64-os.html
-### Ok never mind. Just installed latest tensorflow
-
-sudo apt -y install python3-pip
-
-echo "-------------------------------------------"
 echo "Installing Jupyter Notebook"
 echo "-------------------------------------------"
+sudo apt -y install python3-pip
 
 sudo apt install -y libffi-dev
 sudo -H pip3 install --upgrade ipykernel
@@ -77,6 +70,16 @@ Terminal=true
 Icon=/usr/share/icons/Adwaita/512x512/apps/utilities-terminal.png
 EOF
 fi
+
+echo "-------------------------------------------"
+echo "Installing WiringPi"
+echo "-------------------------------------------"
+pip3 install wiringpi
+sudo apt install build-essential
+cd && git clone https://github.com/WiringPi/WiringPi.git
+cd WiringPi
+./build
+cd
 
 echo "-------------------------------------------"
 echo "Disable DPMS and screen blanking"
