@@ -11,6 +11,7 @@ If everything went ok than you should have the LED from the previous tutorial co
 ### Challenge
 
 If you managed to complete both previous code guides than you should have two files:
+
 * `led_hw.py`: A python script that contains an LED class (the loop to flash the LED is off less importance here)
 * `ldr_hw.py`: A python script that contains an LDR class and a loop that endlessly reads the state of the LDR with a small delay between each iteration.
 
